@@ -5385,7 +5385,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "123|SDnYFUktQ2YtbW2zyqK8c6YnSrCLJYlQplAE7nOcbabb3d42"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -5398,7 +5398,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Head Office\",\n    \"description\": \"Control over all admin\",\n    \"business_id\": \"01hqadv5wy2fs3t3ryy5ge77qd\",\n    \"permissions\": [25]\n}",
+									"raw": "{\n    \"name\": \"Head Office 4\",\n    \"description\": \"Control over all admin\",\n    \"business_id\": \"01hqadv5wy2fs3t3ryy5ge77qd\",\n    \"permissions\": [25]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5518,7 +5518,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -5651,7 +5651,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -5784,7 +5784,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "120|SzV8ISnRJ4fjQ3liLsUs2yOKAvoexfPSGEgAqgXU8ebb11af"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -5917,7 +5917,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "120|SzV8ISnRJ4fjQ3liLsUs2yOKAvoexfPSGEgAqgXU8ebb11af"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -6031,7 +6031,7 @@
 											"});",
 											"",
 											"pm.test(\"Response has errors property with name array\", function () {",
-											"    pm.expect(pm.response.json().errors).to.have.property('description').that.is.an('array').to.eql([\"The description field is required.\"])",
+											"    pm.expect(pm.response.json().errors.name[0]).to.eql(\"The name has already been taken.\")",
 											"});"
 										],
 										"type": "text/javascript"
@@ -6046,7 +6046,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "120|SzV8ISnRJ4fjQ3liLsUs2yOKAvoexfPSGEgAqgXU8ebb11af"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -6179,7 +6179,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "120|SzV8ISnRJ4fjQ3liLsUs2yOKAvoexfPSGEgAqgXU8ebb11af"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -6312,7 +6312,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "120|SzV8ISnRJ4fjQ3liLsUs2yOKAvoexfPSGEgAqgXU8ebb11af"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -6459,7 +6459,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "123|SDnYFUktQ2YtbW2zyqK8c6YnSrCLJYlQplAE7nOcbabb3d42"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "GET",
@@ -6597,7 +6597,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "GET",
@@ -6735,7 +6735,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "120|SzV8ISnRJ4fjQ3liLsUs2yOKAvoexfPSGEgAqgXU8ebb11af"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "GET",
@@ -8030,7 +8030,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "123|SDnYFUktQ2YtbW2zyqK8c6YnSrCLJYlQplAE7nOcbabb3d42"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "GET",
