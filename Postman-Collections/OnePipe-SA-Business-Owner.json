@@ -205,7 +205,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -338,7 +338,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -471,7 +471,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -604,7 +604,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -732,7 +732,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "147|uuA9SOrNzkI5cwI2X603WJZdWmBLyGc3QcFrigRq6e265635"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
@@ -888,7 +888,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "GET",
@@ -1032,7 +1032,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "147|uuA9SOrNzkI5cwI2X603WJZdWmBLyGc3QcFrigRq6e265635"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "GET",
@@ -1176,7 +1176,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "147|uuA9SOrNzkI5cwI2X603WJZdWmBLyGc3QcFrigRq6e265635"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "GET",
@@ -1305,7 +1305,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "GET",
@@ -1432,7 +1432,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "GET",
@@ -1531,6 +1531,47 @@
 					"item": [
 						{
 							"name": "Activate Or Deactivate Employee",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b75ae5f5-417b-4568-bfb3-b723fe2b8a90",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 422\", function () {",
+											"    pm.expect(pm.response.code).to.equal(422);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the required fields - message and errors\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData).to.have.property('message');",
+											"    pm.expect(responseData).to.have.property('errors');",
+											"});",
+											"",
+											"",
+											"pm.test(\"Business_id error field is not empty\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.errors.business_id).to.exist.and.to.have.lengthOf.at.least(1, \"Business_id error field should not be empty\");",
+											"});",
+											"",
+											"",
+											"",
+											"pm.test(\"Message field is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Message field should be a non-empty string\");",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "149ec687-4284-40b8-8c7a-241a9c375f5d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1539,7 +1580,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "18|sWzFftHMwF9bShXfEv9eDrUfG2yPJ6LQQRbjxRvPda8672a0"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "PUT",
@@ -1781,6 +1822,41 @@
 					"item": [
 						{
 							"name": "Delete Employee",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "964c5629-7bb3-43da-8747-3acd62d6e4ab",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 422\", function () {",
+											"  pm.expect(pm.response.code).to.equal(422);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the required fields\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.message).to.exist;",
+											"    pm.expect(responseData.errors).to.exist;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Business_id error is present and not empty\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.errors.business_id).to.exist.and.to.have.lengthOf.at.least(1, \"Business_id error should not be empty\");",
+											"});",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "65b029cd-ca1c-414d-b8c8-8addfa569301",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1789,7 +1865,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "11|QzqO1sR7U3qM9wesuj36d3O05tfMA1zoE99kd6GWb33c336c"
+										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 									}
 								},
 								"method": "POST",
