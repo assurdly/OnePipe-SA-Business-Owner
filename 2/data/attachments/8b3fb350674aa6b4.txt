@@ -1,0 +1,1 @@
+{"message":"The name has already been taken. (and 1 more error)","errors":{"name":["The name has already been taken."],"description":["The description field is required."]}}
