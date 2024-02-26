@@ -2061,7 +2061,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "123|SDnYFUktQ2YtbW2zyqK8c6YnSrCLJYlQplAE7nOcbabb3d42"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "GET",
@@ -2223,7 +2223,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "123|SDnYFUktQ2YtbW2zyqK8c6YnSrCLJYlQplAE7nOcbabb3d42"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "GET",
@@ -2385,7 +2385,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "146|GMEymputnIYQ5mwc6W7puRpI1NH2rvKgC9Rs6Bra73b23c05"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "GET",
@@ -2543,7 +2543,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -2562,7 +2562,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"state_id\": \"01hq1khn0zhdfddzyw4p5506rs\",\n    \"address\": \"No 3 Eromosel Avenue, Lagos\"\n}",
+							"raw": "{\n    \"state_id\": \"01hq1khn0zhdfddzyw4p5506rs\",\n    \"address\": \"No 3 Eromosel Avenue, Lagos, Nigeria\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2683,7 +2683,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "145|5KgUGP1thHkGqUlieLuAohqDWyhVmBiHWl1PWDK516ba2aa2"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -2824,7 +2824,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "145|5KgUGP1thHkGqUlieLuAohqDWyhVmBiHWl1PWDK516ba2aa2"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -2965,7 +2965,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "145|5KgUGP1thHkGqUlieLuAohqDWyhVmBiHWl1PWDK516ba2aa2"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -3106,7 +3106,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "115|m1vCXOcuDk14XyJFwpYX3PeePG368L3XO3xWOBgabff52ebc"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -3129,7 +3129,7 @@
 								{
 									"key": "files[]",
 									"type": "file",
-									"src": "8SsF2avYt/2.png"
+									"src": "2gElVutLw/1.png"
 								},
 								{
 									"key": "business_id",
@@ -3331,7 +3331,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "145|5KgUGP1thHkGqUlieLuAohqDWyhVmBiHWl1PWDK516ba2aa2"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -3557,7 +3557,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "145|5KgUGP1thHkGqUlieLuAohqDWyhVmBiHWl1PWDK516ba2aa2"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -3783,7 +3783,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "145|5KgUGP1thHkGqUlieLuAohqDWyhVmBiHWl1PWDK516ba2aa2"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -4011,7 +4011,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -4154,7 +4154,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "146|GMEymputnIYQ5mwc6W7puRpI1NH2rvKgC9Rs6Bra73b23c05"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -4293,7 +4293,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "146|GMEymputnIYQ5mwc6W7puRpI1NH2rvKgC9Rs6Bra73b23c05"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -4433,7 +4433,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "146|GMEymputnIYQ5mwc6W7puRpI1NH2rvKgC9Rs6Bra73b23c05"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -4573,7 +4573,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "145|5KgUGP1thHkGqUlieLuAohqDWyhVmBiHWl1PWDK516ba2aa2"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -4728,7 +4728,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "123|SDnYFUktQ2YtbW2zyqK8c6YnSrCLJYlQplAE7nOcbabb3d42"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -4862,7 +4862,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "143|svKrPisCLNNrHlgsY3qfKOJyhZ5rGNqhvZqWXUSF9447b159"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -4996,7 +4996,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "143|svKrPisCLNNrHlgsY3qfKOJyhZ5rGNqhvZqWXUSF9447b159"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
@@ -5134,7 +5134,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "143|svKrPisCLNNrHlgsY3qfKOJyhZ5rGNqhvZqWXUSF9447b159"
+								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
 							}
 						},
 						"method": "POST",
