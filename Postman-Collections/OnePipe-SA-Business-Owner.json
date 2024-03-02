@@ -72,7 +72,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "118|MMBwdvbQn5knHxsvTAV3aqMyz3aw18gN6pimsnGOcbfecac5"
+										"token": "2|xG7cxUbiLq2nlAoZOTGZ3EIoM4R8Fk8Ydj7nr9v1facfec9b"
 									}
 								},
 								"method": "POST",
