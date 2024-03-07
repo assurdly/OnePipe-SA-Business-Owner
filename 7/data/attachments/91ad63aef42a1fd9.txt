@@ -1,0 +1,1 @@
+{"message":"The phone number field must be 10 digits. (and 2 more errors)","errors":{"phone_number":["The phone number field must be 10 digits."],"business_name":["The business name has already been taken."],"rc_number":["The rc number has already been taken."]}}

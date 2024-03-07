@@ -1,0 +1,4 @@
+{
+    "state_id": "01hq1khn0zhdfddzyw4p550",
+    "address": "No 3 Eromosel Avenue, Lagos"
+}

@@ -1,0 +1,6 @@
+{
+    "name": "Great Admin",
+    "description": "Control",
+    "business_id": "01hqadv5wy2fs3t3ryy5ge77qd",
+    "permissions": []
+}
