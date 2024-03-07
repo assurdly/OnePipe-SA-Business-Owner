@@ -11723,6 +11723,28 @@
 						},
 						{
 							"name": "Approve Payroll By ID with invalid ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4e47781d-84e7-4d2d-93af-22b480e7b38f",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Response has application/json content type\", function () {",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+											"});",
+											"",
+											"pm.test(\"Response has a message property\", function () {",
+											"    pm.expect(pm.response.json()).to.have.property(\"message\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "21a6480f-1f2c-4a90-8305-c14333f47d94",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -11761,9 +11783,8 @@
 									],
 									"variable": [
 										{
-											"id": "ed2373af-0e01-4b91-a7c5-17d66388b1a6",
 											"key": "payrollId",
-											"value": "01hrb7y1x5wtz6wnrkkwp9xh74"
+											"value": "0345hrb7y1x5wtz6wnrkkwp9xhfg"
 										}
 									]
 								}
@@ -11863,6 +11884,28 @@
 						},
 						{
 							"name": "Approve Payroll By ID with empty ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "943a9e63-03c8-4926-a68d-f1a12bce0e52",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Response has application/json content type\", function () {",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+											"});",
+											"",
+											"pm.test(\"Response has a message property\", function () {",
+											"    pm.expect(pm.response.json()).to.have.property(\"message\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "b53660a5-889a-4816-852f-a469dde31089",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -11901,9 +11944,8 @@
 									],
 									"variable": [
 										{
-											"id": "ed2373af-0e01-4b91-a7c5-17d66388b1a6",
 											"key": "payrollId",
-											"value": "01hrb7y1x5wtz6wnrkkwp9xh74"
+											"value": ""
 										}
 									]
 								}
@@ -12003,6 +12045,249 @@
 						}
 					],
 					"id": "7e0e3f14-926c-489f-89b3-8c2cc9266852"
+				},
+				{
+					"name": "Decline Payroll By ID",
+					"item": [
+						{
+							"name": "Decline Payroll By ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3b40fc1d-c02c-4dbc-9bda-395c89c2c79f",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response is in JSON format\", function () {",
+											"    pm.response.to.have.header('Content-Type', 'application/json');",
+											"});",
+											"",
+											"pm.test(\"Response has a success property of type boolean\", function () {",
+											"    pm.expect(pm.response.json().success).to.be.a('boolean');",
+											"});",
+											"",
+											"pm.test(\"Response data object has required properties\", function () {",
+											"    var data = pm.response.json().data;",
+											"    pm.expect(data).to.have.property('id');",
+											"    pm.expect(data).to.have.property('name');",
+											"    pm.expect(data).to.have.property('cycle_starts');",
+											"    pm.expect(data).to.have.property('cycle_ends');",
+											"    pm.expect(data).to.have.property('amount_disbursed');",
+											"    pm.expect(data).to.have.property('sms_email_fee');",
+											"    pm.expect(data).to.have.property('employees_loan_amount');",
+											"    pm.expect(data).to.have.property('amount_to_fund');",
+											"    pm.expect(data).to.have.property('business_id');",
+											"    pm.expect(data).to.have.property('account_fund_status');",
+											"    pm.expect(data).to.have.property('employee_count');",
+											"    pm.expect(data).to.have.property('status');",
+											"    pm.expect(data).to.have.property('deleted_at');",
+											"    pm.expect(data).to.have.property('created_at');",
+											"    pm.expect(data).to.have.property('updated_at');",
+											"});",
+											"",
+											"pm.test(\"Response contain pagination\", function () {",
+											"    pm.expect(pm.response.json()).to.have.property('pagination');",
+											"});",
+											"",
+											"pm.test(\"Response message property is not empty string\", function () {",
+											"    pm.expect(pm.response.json().message).to.be.a('string').and.to.not.be.empty;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "23072e9b-a841-4b45-bd51-c700e1fba6dc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "41|Lpi6VLYkdcQvDjb2XfC2742GxXHBI0iJ5eHXoKdC870a6ad3"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/decline/:payrollId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										"decline",
+										":payrollId"
+									],
+									"variable": [
+										{
+											"key": "payrollId",
+											"value": "01hrb97f4qchvpjnt9y4v9j61q"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Decline Payroll By ID with Invalid ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b1036301-d3be-4855-9216-af7ed227e10c",
+										"exec": [
+											"pm.test(\"Response status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Response is in JSON format\", function () {",
+											"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+											"});",
+											"",
+											"pm.test(\"Response has a message property\", function () {",
+											"    pm.expect(pm.response.json()).to.have.property(\"message\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "def4374c-38a7-4d3c-b471-cf5e1d7f064f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "41|Lpi6VLYkdcQvDjb2XfC2742GxXHBI0iJ5eHXoKdC870a6ad3"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/decline/:payrollId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										"decline",
+										":payrollId"
+									],
+									"variable": [
+										{
+											"key": "payrollId",
+											"value": "034ffg1hrb97f4qchvpjnt9y4v9j61q"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Decline Payroll By ID with empty ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d7800ac7-c5c8-44fc-8253-e4b8b862c53f",
+										"exec": [
+											"pm.test(\"Response status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Response is in JSON format\", function () {",
+											"    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+											"});",
+											"",
+											"pm.test(\"Response has a message property\", function () {",
+											"    pm.expect(pm.response.json()).to.have.property(\"message\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "6ad7122c-cc58-422b-a0cc-6c382f9ac8c1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "41|Lpi6VLYkdcQvDjb2XfC2742GxXHBI0iJ5eHXoKdC870a6ad3"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/decline/:payrollId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										"decline",
+										":payrollId"
+									],
+									"variable": [
+										{
+											"key": "payrollId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "30579920-6931-4f60-8905-f8fc689748e8"
 				},
 				{
 					"name": "Get  List of Payrolls",
@@ -12149,10 +12434,149 @@
 							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": \"01hqjmfbxt7n89rvznm4aa760k\",\n            \"name\": \"March 2024 Payroll\",\n            \"cycle_starts\": \"Mar 27, 2024\",\n            \"cycle_ends\": \"Apr 27, 2024\",\n            \"amount_disbursed\": \"84999.99\",\n            \"date_created\": \"26/02/2024 @ 12:58PM\",\n            \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n            \"employee_count\": \"3\",\n            \"status\": \"pending\"\n        },\n        {\n            \"id\": \"01hqhrzbp0d43jbfzzaaxm56bj\",\n            \"name\": \"February 2024 Payroll\",\n            \"cycle_starts\": \"Feb 27, 2024\",\n            \"cycle_ends\": \"Mar 27, 2024\",\n            \"amount_disbursed\": \"84999.99\",\n            \"date_created\": \"26/02/2024 @ 04:57AM\",\n            \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n            \"employee_count\": \"3\",\n            \"status\": \"Approved\"\n        },\n        {\n            \"id\": \"2\",\n            \"name\": \"August Payroll\",\n            \"cycle_starts\": \"Feb 14, 2024\",\n            \"cycle_ends\": \"Feb 17, 2024\",\n            \"amount_disbursed\": \"10000.00\",\n            \"date_created\": \"14/02/2024 @ 01:11AM\",\n            \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n            \"employee_count\": \"1\",\n            \"status\": \"Approved\"\n        }\n    ],\n    \"pagination\": {\n        \"current_page\": 1,\n        \"per_page\": 10,\n        \"total\": 3,\n        \"next_page_url\": null,\n        \"prev_page_url\": null\n    },\n    \"message\": \"Payrolls retrieved successfully\"\n}"
 						}
 					]
+				}
+			],
+			"id": "a644518f-0dbf-4d31-a996-f54da6c535d9"
+		},
+		{
+			"name": "Loan",
+			"item": [
+				{
+					"name": "New Folder",
+					"item": [],
+					"id": "946935cd-c5e2-4807-afe4-5828f2e12bd2"
 				},
 				{
-					"name": "Decline Payroll By ID",
-					"id": "23072e9b-a841-4b45-bd51-c700e1fba6dc",
+					"name": "Get  List of Loans",
+					"id": "37b9395b-05b2-4e84-b4ef-99627fe09387",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "73|ztkpoNJEugi2c4BY6qB0vgC1F4IBYvEIOWJcvc65d3e74d55"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{baseUrl}}/api/loans"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Loan Details By ID",
+					"id": "645db45c-53d5-49e8-9141-6734340f2cee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/loans/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"loans",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "8749c3ea-3c89-4a61-a39f-f2bdbe24303b",
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Loan By ID",
+					"id": "2cf40856-550d-4553-ab93-27690bcf5de6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/payroll/:id/approve",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"payroll",
+								":id",
+								"approve"
+							],
+							"variable": [
+								{
+									"id": "1f5cd601-5c07-4720-8e78-abcae0ad3ac7",
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decline Loan By ID",
+					"id": "5803b89b-2fe4-4521-b230-cedbcdc77179",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -12178,29 +12602,69 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/payroll/decline/:payrollId",
+							"raw": "{{baseUrl}}/api/loans/:id/decline",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
-								"payroll",
-								"decline",
-								":payrollId"
+								"loans",
+								":id",
+								"decline"
 							],
 							"variable": [
 								{
-									"id": "1b3ec1a6-060e-4905-b50c-747659e834a7",
-									"key": "payrollId",
+									"id": "04a95be2-9e91-4149-9801-3f57568ee6aa",
+									"key": "id",
 									"value": ""
 								}
 							]
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Book Loan",
+					"id": "2412ff69-047d-412d-bcd0-c2aa66e0c014",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "70|5ZD1XKJLra2YuQbYuQi8z1vUCHYgGuf0tw684qKya28dab46"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"loan_type_id\": \"sadfghjjht12\",\n    \"employee_id\": \"1234567ihgfd\",\n    \"amount\": \"100000\",\n    \"tenor\": \"6\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/loans"
+					},
+					"response": []
 				}
 			],
-			"id": "a644518f-0dbf-4d31-a996-f54da6c535d9"
+			"id": "7e16ff7d-6c33-4fb1-916b-8d013c3c00df"
 		}
 	],
 	"event": [
