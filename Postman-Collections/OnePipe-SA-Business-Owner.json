@@ -11035,6 +11035,43 @@
 					"item": [
 						{
 							"name": "Get  Payroll Details By ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a190462e-cf82-4b11-a409-99dff7c1ed25",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response is an object with data property\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
+											"});",
+											"",
+											"pm.test(\"Data property is an object with specific properties\", function () {",
+											"    var data = pm.response.json().data;",
+											"    pm.expect(data).to.be.an('object').that.includes.all.keys(",
+											"        'id', 'name', 'cycle_starts', 'cycle_ends', 'amount_disbursed',",
+											"        'sms_email_fee', 'employees_loan_amount', 'amount_to_fund',",
+											"        'business_id', 'account_fund_status', 'employee_count', 'status',",
+											"        'deleted_at', 'created_at', 'updated_at', 'business'",
+											"    );",
+											"});",
+											"",
+											"pm.test(\"Business property is an object with specific properties\", function () {",
+											"    var business = pm.response.json().data.business;",
+											"    pm.expect(business).to.be.an('object').that.includes.all.keys(",
+											"        'id', 'business_name', 'rc_number', 'business_type', 'state_id',",
+											"        'bank_details_id', 'address', 'enable_sms', 'enable_email',",
+											"        'has_completed_kyb', 'owner_id', 'status', 'created_at', 'updated_at'",
+											"    );",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "6926d795-d1ed-463a-96ec-0f781c25872a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -11170,6 +11207,30 @@
 						},
 						{
 							"name": "Get  Payroll Details By ID with Invalid ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4b7e25e2-f1a3-4646-b2ef-8121bcecb4a9",
+										"exec": [
+											"pm.test('Status code is 400', function () {",
+											"    pm.response.to.have.status(400);",
+											"})",
+											"",
+											"pm.test('Response has JSON content type', function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+											"})",
+											"",
+											"pm.test(\"Response is an object with message property\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('message').eql(\"Payroll doesn't exist\");",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "8b51792f-544e-4454-a4c7-ee3130eaf7a2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -11208,9 +11269,8 @@
 									],
 									"variable": [
 										{
-											"id": "e7ad960a-545f-4009-bd99-f8c7ec49bd4b",
 											"key": "payrollId",
-											"value": "01hrb7y1x5wtz6wnrkkwp9xh74"
+											"value": "0345hrb7y1x5wtz6wnrkkwp9xhQ3F"
 										}
 									]
 								}
@@ -11303,9 +11363,646 @@
 									"body": "{\n    \"data\": {\n        \"id\": \"01hqhrzbp0d43jbfzzaaxm56bj\",\n        \"name\": \"February 2024 Payroll\",\n        \"cycle_starts\": \"2024-02-27 00:00:00\",\n        \"cycle_ends\": \"2024-03-27 00:00:00\",\n        \"amount_disbursed\": \"84999.99\",\n        \"sms_email_fee\": \"0.00\",\n        \"employees_loan_amount\": \"0.00\",\n        \"amount_to_fund\": \"84999.99\",\n        \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n        \"account_fund_status\": \"pending\",\n        \"employee_count\": \"3\",\n        \"status\": \"Approved\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-02-26T03:57:40.000000Z\",\n        \"updated_at\": \"2024-02-26T11:59:35.000000Z\"\n    },\n    \"message\": \"Payroll details fetched successfully\",\n    \"code\": 200\n}"
 								}
 							]
+						},
+						{
+							"name": "Get  Payroll Details By ID with empty ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ed045ab7-86da-4d51-835b-78de645685f7",
+										"exec": [
+											"pm.test('Status code is 400', function () {",
+											"    pm.response.to.have.status(400);",
+											"})",
+											"",
+											"pm.test('Response has JSON content type', function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+											"})",
+											"",
+											"pm.test(\"Response is an object with message property\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('message').eql(\"Payroll doesn't exist\");",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "e7ddcedc-023a-48d9-b8d6-d628d96d9842",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "41|Lpi6VLYkdcQvDjb2XfC2742GxXHBI0iJ5eHXoKdC870a6ad3"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/details/:payrollId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										"details",
+										":payrollId"
+									],
+									"variable": [
+										{
+											"key": "payrollId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "606419bf-9a3e-45ac-bc98-b58bcbb7afde",
+									"name": "Get  Payroll Details By ID",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/payroll/details/:payrollId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"payroll",
+												"details",
+												":payrollId"
+											],
+											"variable": [
+												{
+													"key": "payrollId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 26 Feb 2024 12:10:58 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 26 Feb 2024 12:10:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"id\": \"01hqhrzbp0d43jbfzzaaxm56bj\",\n        \"name\": \"February 2024 Payroll\",\n        \"cycle_starts\": \"2024-02-27 00:00:00\",\n        \"cycle_ends\": \"2024-03-27 00:00:00\",\n        \"amount_disbursed\": \"84999.99\",\n        \"sms_email_fee\": \"0.00\",\n        \"employees_loan_amount\": \"0.00\",\n        \"amount_to_fund\": \"84999.99\",\n        \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n        \"account_fund_status\": \"pending\",\n        \"employee_count\": \"3\",\n        \"status\": \"Approved\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-02-26T03:57:40.000000Z\",\n        \"updated_at\": \"2024-02-26T11:59:35.000000Z\"\n    },\n    \"message\": \"Payroll details fetched successfully\",\n    \"code\": 200\n}"
+								}
+							]
 						}
 					],
 					"id": "25526036-32fe-4606-a8b9-00f23add96ae"
+				},
+				{
+					"name": "Approve Payroll By ID",
+					"item": [
+						{
+							"name": "Approve Payroll By ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b8ef83af-22cd-41c6-9785-ac0c838d2366",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response is a JSON object\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('object');",
+											"});",
+											"",
+											"pm.test(\"Response has a 'success' property\", function () {",
+											"    pm.expect(pm.response.json()).to.have.property('success');",
+											"});",
+											"",
+											"pm.test(\"Data property exists and is an object\", function () {",
+											"    pm.expect(pm.response.json().data).to.be.an('object');",
+											"});",
+											"",
+											"pm.test(\"Data object has specific properties\", function () {",
+											"    var data = pm.response.json().data;",
+											"    pm.expect(data).to.have.property('id');",
+											"    pm.expect(data).to.have.property('name');",
+											"    pm.expect(data).to.have.property('cycle_starts');",
+											"    pm.expect(data).to.have.property('cycle_ends');",
+											"    pm.expect(data).to.have.property('amount_disbursed');",
+											"    pm.expect(data).to.have.property('sms_email_fee');",
+											"    pm.expect(data).to.have.property('employees_loan_amount');",
+											"    pm.expect(data).to.have.property('amount_to_fund');",
+											"    pm.expect(data).to.have.property('business_id');",
+											"    pm.expect(data).to.have.property('account_fund_status');",
+											"    pm.expect(data).to.have.property('employee_count');",
+											"    pm.expect(data).to.have.property('status');",
+											"    pm.expect(data).to.have.property('deleted_at');",
+											"    pm.expect(data).to.have.property('created_at');",
+											"    pm.expect(data).to.have.property('updated_at');",
+											"});",
+											"",
+											"pm.test(\"Pagination property is null\", function () {",
+											"    pm.expect(pm.response.json().pagination).to.be.null;",
+											"});",
+											"",
+											"pm.test(\"Message property exists\", function () {",
+											"    pm.expect(pm.response.json()).to.have.property('message');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "48489d5b-e93a-40c4-82de-20fbebca92cd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "41|Lpi6VLYkdcQvDjb2XfC2742GxXHBI0iJ5eHXoKdC870a6ad3"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/approve/:payrollId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										"approve",
+										":payrollId"
+									],
+									"variable": [
+										{
+											"key": "payrollId",
+											"value": "01hrb7y1x5wtz6wnrkkwp9xh74"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "df417cc7-2a64-4a5d-b62c-756b99fa23b7",
+									"name": "Approve Payroll By ID",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/payroll/approve/:payrollId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"payroll",
+												"approve",
+												":payrollId"
+											],
+											"variable": [
+												{
+													"key": "payrollId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 29 Feb 2024 00:55:05 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Server",
+											"value": "nginx/1.19.1"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": \"01hqs58tyamvyftr1sdbcd7nhy\",\n        \"name\": \"January 2024 Payroll\",\n        \"cycle_starts\": \"2024-02-01 00:00:00\",\n        \"cycle_ends\": \"2024-02-29 00:00:00\",\n        \"amount_disbursed\": \"83333.33\",\n        \"sms_email_fee\": \"0.00\",\n        \"employees_loan_amount\": \"0.00\",\n        \"amount_to_fund\": \"83333.33\",\n        \"business_id\": \"01hqs4adws9atbpqa29zszz787\",\n        \"account_fund_status\": \"pending\",\n        \"employee_count\": \"1\",\n        \"status\": \"Approved\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-02-29T00:47:15.000000Z\",\n        \"updated_at\": \"2024-02-29T00:55:04.000000Z\"\n    },\n    \"pagination\": null,\n    \"message\": \"Payroll approved successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Approve Payroll By ID with invalid ID",
+							"id": "21a6480f-1f2c-4a90-8305-c14333f47d94",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "41|Lpi6VLYkdcQvDjb2XfC2742GxXHBI0iJ5eHXoKdC870a6ad3"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/approve/:payrollId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										"approve",
+										":payrollId"
+									],
+									"variable": [
+										{
+											"id": "ed2373af-0e01-4b91-a7c5-17d66388b1a6",
+											"key": "payrollId",
+											"value": "01hrb7y1x5wtz6wnrkkwp9xh74"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "6f550ea3-e9ce-45ca-b1bd-ab9c06248bdc",
+									"name": "Approve Payroll By ID",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/payroll/approve/:payrollId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"payroll",
+												"approve",
+												":payrollId"
+											],
+											"variable": [
+												{
+													"key": "payrollId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 29 Feb 2024 00:55:05 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Server",
+											"value": "nginx/1.19.1"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": \"01hqs58tyamvyftr1sdbcd7nhy\",\n        \"name\": \"January 2024 Payroll\",\n        \"cycle_starts\": \"2024-02-01 00:00:00\",\n        \"cycle_ends\": \"2024-02-29 00:00:00\",\n        \"amount_disbursed\": \"83333.33\",\n        \"sms_email_fee\": \"0.00\",\n        \"employees_loan_amount\": \"0.00\",\n        \"amount_to_fund\": \"83333.33\",\n        \"business_id\": \"01hqs4adws9atbpqa29zszz787\",\n        \"account_fund_status\": \"pending\",\n        \"employee_count\": \"1\",\n        \"status\": \"Approved\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-02-29T00:47:15.000000Z\",\n        \"updated_at\": \"2024-02-29T00:55:04.000000Z\"\n    },\n    \"pagination\": null,\n    \"message\": \"Payroll approved successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Approve Payroll By ID with empty ID",
+							"id": "b53660a5-889a-4816-852f-a469dde31089",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "41|Lpi6VLYkdcQvDjb2XfC2742GxXHBI0iJ5eHXoKdC870a6ad3"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/approve/:payrollId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										"approve",
+										":payrollId"
+									],
+									"variable": [
+										{
+											"id": "ed2373af-0e01-4b91-a7c5-17d66388b1a6",
+											"key": "payrollId",
+											"value": "01hrb7y1x5wtz6wnrkkwp9xh74"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "c680b6e6-62e5-4833-8c7b-6df693c45ae0",
+									"name": "Approve Payroll By ID",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/payroll/approve/:payrollId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"payroll",
+												"approve",
+												":payrollId"
+											],
+											"variable": [
+												{
+													"key": "payrollId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 29 Feb 2024 00:55:05 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Server",
+											"value": "nginx/1.19.1"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": \"01hqs58tyamvyftr1sdbcd7nhy\",\n        \"name\": \"January 2024 Payroll\",\n        \"cycle_starts\": \"2024-02-01 00:00:00\",\n        \"cycle_ends\": \"2024-02-29 00:00:00\",\n        \"amount_disbursed\": \"83333.33\",\n        \"sms_email_fee\": \"0.00\",\n        \"employees_loan_amount\": \"0.00\",\n        \"amount_to_fund\": \"83333.33\",\n        \"business_id\": \"01hqs4adws9atbpqa29zszz787\",\n        \"account_fund_status\": \"pending\",\n        \"employee_count\": \"1\",\n        \"status\": \"Approved\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-02-29T00:47:15.000000Z\",\n        \"updated_at\": \"2024-02-29T00:55:04.000000Z\"\n    },\n    \"pagination\": null,\n    \"message\": \"Payroll approved successfully\"\n}"
+								}
+							]
+						}
+					],
+					"id": "7e0e3f14-926c-489f-89b3-8c2cc9266852"
 				},
 				{
 					"name": "Get  List of Payrolls",
@@ -11450,146 +12147,6 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": \"01hqjmfbxt7n89rvznm4aa760k\",\n            \"name\": \"March 2024 Payroll\",\n            \"cycle_starts\": \"Mar 27, 2024\",\n            \"cycle_ends\": \"Apr 27, 2024\",\n            \"amount_disbursed\": \"84999.99\",\n            \"date_created\": \"26/02/2024 @ 12:58PM\",\n            \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n            \"employee_count\": \"3\",\n            \"status\": \"pending\"\n        },\n        {\n            \"id\": \"01hqhrzbp0d43jbfzzaaxm56bj\",\n            \"name\": \"February 2024 Payroll\",\n            \"cycle_starts\": \"Feb 27, 2024\",\n            \"cycle_ends\": \"Mar 27, 2024\",\n            \"amount_disbursed\": \"84999.99\",\n            \"date_created\": \"26/02/2024 @ 04:57AM\",\n            \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n            \"employee_count\": \"3\",\n            \"status\": \"Approved\"\n        },\n        {\n            \"id\": \"2\",\n            \"name\": \"August Payroll\",\n            \"cycle_starts\": \"Feb 14, 2024\",\n            \"cycle_ends\": \"Feb 17, 2024\",\n            \"amount_disbursed\": \"10000.00\",\n            \"date_created\": \"14/02/2024 @ 01:11AM\",\n            \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n            \"employee_count\": \"1\",\n            \"status\": \"Approved\"\n        }\n    ],\n    \"pagination\": {\n        \"current_page\": 1,\n        \"per_page\": 10,\n        \"total\": 3,\n        \"next_page_url\": null,\n        \"prev_page_url\": null\n    },\n    \"message\": \"Payrolls retrieved successfully\"\n}"
-						}
-					]
-				},
-				{
-					"name": "Approve Payroll By ID",
-					"id": "48489d5b-e93a-40c4-82de-20fbebca92cd",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
-							}
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/api/payroll/approve/:payrollId",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"payroll",
-								"approve",
-								":payrollId"
-							],
-							"variable": [
-								{
-									"id": "01d1077a-ad3e-4d14-884d-49bcbc2f8f6e",
-									"key": "payrollId",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "df417cc7-2a64-4a5d-b62c-756b99fa23b7",
-							"name": "Approve Payroll By ID",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/api/payroll/approve/:payrollId",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"payroll",
-										"approve",
-										":payrollId"
-									],
-									"variable": [
-										{
-											"key": "payrollId",
-											"value": ""
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 29 Feb 2024 00:55:05 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Server",
-									"value": "nginx/1.19.1"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept-Encoding"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "60"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "59"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Encoding",
-									"value": "gzip"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": \"01hqs58tyamvyftr1sdbcd7nhy\",\n        \"name\": \"January 2024 Payroll\",\n        \"cycle_starts\": \"2024-02-01 00:00:00\",\n        \"cycle_ends\": \"2024-02-29 00:00:00\",\n        \"amount_disbursed\": \"83333.33\",\n        \"sms_email_fee\": \"0.00\",\n        \"employees_loan_amount\": \"0.00\",\n        \"amount_to_fund\": \"83333.33\",\n        \"business_id\": \"01hqs4adws9atbpqa29zszz787\",\n        \"account_fund_status\": \"pending\",\n        \"employee_count\": \"1\",\n        \"status\": \"Approved\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-02-29T00:47:15.000000Z\",\n        \"updated_at\": \"2024-02-29T00:55:04.000000Z\"\n    },\n    \"pagination\": null,\n    \"message\": \"Payroll approved successfully\"\n}"
 						}
 					]
 				},
