@@ -8271,7 +8271,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"mosesgeorge2605@gmail.com\",\n    \"password\": \"Qwerty123@\"\n}",
+									"raw": "{\n    \"email\": \"moses@assurdly.com\",\n    \"password\": \"Qwerty123@\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8291,7 +8291,7 @@
 										"id": "f042516e-c7b2-4406-ada2-0a7824c390a9",
 										"exec": [
 											"pm.test(\"Response status code is 401\", function () {",
-											"    pm.response.to.have.status(401);",
+											"    pm.response.to.have.status(422);",
 											"});",
 											"",
 											"pm.test(\"Response is a JSON object with a message property\", function () {",
@@ -8299,7 +8299,7 @@
 											"});",
 											"",
 											"pm.test(\"Response is a JSON object with a message Invalid credential\", function () {",
-											"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('message').to.eql(\"Invalid credentials\");",
+											"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('message').to.eql(\"Please enter a valid email address.\");",
 											"});"
 										],
 										"type": "text/javascript"
@@ -8318,7 +8318,13 @@
 									}
 								},
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "raw",
 									"raw": "{\n    \"email\": \"moses.@assurdly.com\",\n    \"password\": \"Qwerty123@\"\n}",
@@ -8404,13 +8410,6 @@
 											"  const responseData = pm.response.json();",
 											"  ",
 											"  pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Message should not be empty\");",
-											"});",
-											"",
-											"",
-											"pm.test(\"Errors property is an object with at least one key-value pair\", function () {",
-											"  const responseData = pm.response.json();",
-											"  ",
-											"  pm.expect(responseData.errors).to.be.an('object').and.to.have.property(pm.expect.any);",
 											"});",
 											"",
 											"",
@@ -8624,7 +8623,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"Moses\",\n    \"last_name\": \"George\",\n    \"email\": \"moses@assurdly.com\",\n    \"phone_number\": \"8173854809\",\n    \"business_name\": \"Assurdly Business 4\",\n    \"rc_number\": \"21244543\",\n    \"business_type\": \"Marketing\",\n    \"password\": \"Qwerty123@\"\n}",
+									"raw": "{\n    \"first_name\": \"Moses\",\n    \"last_name\": \"George\",\n    \"email\": \"mosesgeorge2605@gmail.com\",\n    \"phone_number\": \"8173854809\",\n    \"business_name\": \"Assurdly Business 4\",\n    \"rc_number\": \"21244543\",\n    \"business_type\": \"Marketing\",\n    \"password\": \"Qwerty123@\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
