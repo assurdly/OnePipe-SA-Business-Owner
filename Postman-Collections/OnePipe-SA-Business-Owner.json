@@ -12442,8 +12442,49 @@
 			"name": "Loan",
 			"item": [
 				{
-					"name": "New Folder",
-					"item": [],
+					"name": "Book Loan",
+					"item": [
+						{
+							"name": "Book Loan",
+							"id": "2412ff69-047d-412d-bcd0-c2aa66e0c014",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "70|5ZD1XKJLra2YuQbYuQi8z1vUCHYgGuf0tw684qKya28dab46"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"loan_type_id\": \"sadfghjjht12\",\n    \"employee_id\": \"1234567ihgfd\",\n    \"amount\": \"100000\",\n    \"tenor\": \"6\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/loans"
+							},
+							"response": []
+						}
+					],
 					"id": "946935cd-c5e2-4807-afe4-5828f2e12bd2"
 				},
 				{
@@ -12620,46 +12661,6 @@
 								}
 							]
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Book Loan",
-					"id": "2412ff69-047d-412d-bcd0-c2aa66e0c014",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "70|5ZD1XKJLra2YuQbYuQi8z1vUCHYgGuf0tw684qKya28dab46"
-							}
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"loan_type_id\": \"sadfghjjht12\",\n    \"employee_id\": \"1234567ihgfd\",\n    \"amount\": \"100000\",\n    \"tenor\": \"6\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{baseUrl}}/api/loans"
 					},
 					"response": []
 				}
