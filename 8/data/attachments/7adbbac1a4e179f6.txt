@@ -1,0 +1,6 @@
+{
+    "name": "HeadOffice",
+    "description": "Control over all admin",
+    "business_id": "01hrb6wtk4q84kvbb8gqfpsqry",
+    "permissions": [25]
+}

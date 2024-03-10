@@ -1,0 +1,6 @@
+{
+    "name": "SuperAdmin",
+    "description": "Control over all admin",
+    "business_id": "01hqadv5wy2fs3t3ryy5ge77qd",
+    "permissions": [50]
+}

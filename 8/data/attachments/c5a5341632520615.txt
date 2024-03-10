@@ -1,0 +1,14 @@
+{
+    "first_name": "Ebuka",
+    "last_name": "George",
+    "email_address": "mosesgeorge260805@gmail.com",
+    "phone_number": "007012345672",
+    "employement_date": "2024-02-12 00:00:00",
+    "job_title": "QA",
+    "annual_net_salary": "100000000",
+    "annual_gross_salary": "150000000",
+    "bank_id": "01hq37c52fwjkae1sanaz4mv0h",
+    "business_id": "01hqadv5wy2fs3t3ryy5ge77qd",
+    "account_name": "MOSES  EBUKA GEORGE",
+    "account_number": "0045795119"
+}
