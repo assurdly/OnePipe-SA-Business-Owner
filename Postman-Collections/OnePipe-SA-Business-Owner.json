@@ -5869,7 +5869,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "43|CrlqVM24vf9yqer6AaRf0loaCAtreTZgmo0XJsIcc9964939"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -5882,7 +5882,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"\",\n    \"description\": \"Control over all admin\",\n    \"business_id\": \"01hqadv5wy2fs3t3ryy5ge77qd\",\n    \"permissions\": [50]\n}",
+									"raw": "{\n    \"name\": \"\",\n    \"description\": \"Control over all admin\",\n    \"business_id\": \"{business_id}\",\n    \"permissions\": [50]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6002,7 +6002,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "43|CrlqVM24vf9yqer6AaRf0loaCAtreTZgmo0XJsIcc9964939"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -6015,7 +6015,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Great Admin\",\n    \"description\": \"\",\n    \"business_id\": \"01hqadv5wy2fs3t3ryy5ge77qd\",\n    \"permissions\": [50]\n}",
+									"raw": "{\n    \"name\": \"Great Admin\",\n    \"description\": \"\",\n    \"business_id\": \"{business_id}\",\n    \"permissions\": [50]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6131,7 +6131,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "43|CrlqVM24vf9yqer6AaRf0loaCAtreTZgmo0XJsIcc9964939"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -6144,7 +6144,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Great Admin\",\n    \"description\": \"Control\",\n    \"business_id\": \"\",\n    \"permissions\": [50]\n}",
+									"raw": "{\n    \"name\": \"Greatdmin\",\n    \"description\": \"Control\",\n    \"business_id\": \"\",\n    \"permissions\": [50]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6264,7 +6264,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "43|CrlqVM24vf9yqer6AaRf0loaCAtreTZgmo0XJsIcc9964939"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -6277,7 +6277,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Great Admin\",\n    \"description\": \"Control\",\n    \"business_id\": \"01hqadv5wy2fs3t3ryy5ge77qd\",\n    \"permissions\": []\n}",
+									"raw": "{\n    \"name\": \"Great Admin\",\n    \"description\": \"Control\",\n    \"business_id\": \"{business_id}\",\n    \"permissions\": []\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6397,7 +6397,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -6544,7 +6544,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "GET",
@@ -6557,7 +6557,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"business_id\": \"01hqadv5wy2fs3t3ryy5ge77qd\"\n}",
+									"raw": "{\n    \"business_id\": \"{business_id}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6682,7 +6682,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "GET",
@@ -6820,7 +6820,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "GET",
@@ -7006,7 +7006,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "79|fcy2ApCkJF7LwtnW3bGUCPguWvvOzQZxnesNRpNgc2f6ac0f"
+										"token": "{{token}}"
 									}
 								},
 								"method": "GET",
@@ -7104,7 +7104,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "123|SDnYFUktQ2YtbW2zyqK8c6YnSrCLJYlQplAE7nOcbabb3d42"
+										"token": "{{token}}"
 									}
 								},
 								"method": "GET",
@@ -7252,7 +7252,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -7265,7 +7265,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"moses25@assurdly.com\",\n    \"role_id\": \"22\"\n}",
+									"raw": "{\n    \"email\": \"moses+1@assurdly.com\",\n    \"role_id\": \"5\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
