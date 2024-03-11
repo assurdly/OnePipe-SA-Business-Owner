@@ -1,0 +1,6 @@
+{
+    "name": "{{$randomName}}",
+    "description": "Control over all admin",
+    "business_id": "{business_id}",
+    "permissions": [25]
+}
