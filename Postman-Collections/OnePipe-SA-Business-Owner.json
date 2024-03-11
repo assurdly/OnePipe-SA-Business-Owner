@@ -7386,7 +7386,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -7520,7 +7520,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -7654,7 +7654,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -7788,7 +7788,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -7801,7 +7801,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"moses@assurdly.com\",\n    \"role_id\": \"\"\n}",
+									"raw": "{\n    \"email\": \"moses+2@assurdly.com\",\n    \"role_id\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -7922,7 +7922,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -8115,7 +8115,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
