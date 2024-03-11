@@ -19,9 +19,13 @@
 									"script": {
 										"id": "d134c63d-7f94-4923-baf5-b9515720d445",
 										"exec": [
+											"var jsonData = pm.response.json()",
+											"",
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
 											"});",
+											"",
+											"pm.collectionVariables.set(\"employee_id\", jsonData.id);",
 											"",
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -62,6 +66,16 @@
 										],
 										"type": "text/javascript"
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "52fcfa4b-5f75-499f-80ef-c609e7270421",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
 								}
 							],
 							"id": "7cd1d0d9-e429-4420-b11d-c987686dad6a",
@@ -72,7 +86,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "2|xG7cxUbiLq2nlAoZOTGZ3EIoM4R8Fk8Ydj7nr9v1facfec9b"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -85,7 +99,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"Ebuka\",\n    \"last_name\": \"George\",\n    \"email_address\": \"mosesgeorge2605090@gmail.com\",\n    \"phone_number\": \"7012345675\",\n    \"employement_date\": \"2024-02-12 00:00:00\",\n    \"job_title\": \"QA\",\n    \"annual_net_salary\": \"100000000\",\n    \"annual_gross_salary\": \"150000000\",\n    \"bank_id\": \"01hq37c57y9w2tqatdnyjbkbqe\",\n    \"business_id\": \"01hqadv5wy2fs3t3ryy5ge77qd\",\n    \"account_name\": \"MOSES  EBUKA GEORGE\",\n    \"account_number\": \"0175729980\"\n}",
+									"raw": "{\n    \"first_name\": \"{{$randomName}}\",\n    \"last_name\": \"{{$randomName}}\",\n    \"email_address\": \"{{$randomEmail}}\",\n    \"phone_number\": \"8145362789\",\n    \"employement_date\": \"2024-02-12 00:00:00\",\n    \"job_title\": \"QA\",\n    \"annual_net_salary\": \"100000000\",\n    \"annual_gross_salary\": \"150000000\",\n    \"bank_id\": \"01hrfgtn5mbaxsw6zhzn8w53hh\",\n    \"business_id\": \"01hrnm4ndcve9zp01m928heejv\",\n    \"account_name\": \"MOSES  EBUKA GEORGE\",\n    \"account_number\": \"0045795119\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -205,7 +219,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -338,7 +352,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -471,7 +485,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -484,7 +498,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"Ebuka\",\n    \"last_name\": \"George\",\n    \"email_address\": \"mosesgeorge260805@gmail.com\",\n    \"phone_number\": \"7012345672\",\n    \"employement_date\": \"2024-02-12 00:00:00\",\n    \"job_title\": \"QA\",\n    \"annual_net_salary\": \"100000000\",\n    \"annual_gross_salary\": \"150000000\",\n    \"bank_id\": \"01hq37c52fwjkae1sanaz4mv0uhj\",\n    \"business_id\": \"01hqadv5wy2fs3t3ryy5ge77qd\",\n    \"account_name\": \"MOSES  EBUKA GEORGE\",\n    \"account_number\": \"0045795119\"\n}",
+									"raw": "{\n    \"first_name\": \"Ebuka\",\n    \"last_name\": \"George\",\n    \"email_address\": \"mosesgeorge260805@gmail.com\",\n    \"phone_number\": \"7012345672\",\n    \"employement_date\": \"2024-02-12 00:00:00\",\n    \"job_title\": \"QA\",\n    \"annual_net_salary\": \"100000000\",\n    \"annual_gross_salary\": \"150000000\",\n    \"bank_id\": \"01hq37c52fwjkae1sanaz4mv0uhj\",\n    \"business_id\": \"01hrnm4ndcve9zp01m928heejv\",\n    \"account_name\": \"MOSES  EBUKA GEORGE\",\n    \"account_number\": \"0045795119\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -604,7 +618,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -732,7 +746,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -888,7 +902,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "GET",
@@ -905,7 +919,7 @@
 										"disabled": true
 									}
 								],
-								"url": "{{baseUrl}}/api/employees/01hqadv5wy2fs3t3ryy5ge77qd"
+								"url": "{{baseUrl}}/api/employees/01hrnm4ndcve9zp01m928heejv"
 							},
 							"response": [
 								{
@@ -1032,7 +1046,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "GET",
@@ -1176,7 +1190,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "GET",
