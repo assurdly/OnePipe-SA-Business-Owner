@@ -4239,7 +4239,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -4378,7 +4378,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -4518,7 +4518,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -4658,7 +4658,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -4813,7 +4813,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -4947,7 +4947,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -5081,7 +5081,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -5219,7 +5219,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -5470,7 +5470,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "43|CrlqVM24vf9yqer6AaRf0loaCAtreTZgmo0XJsIcc9964939"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -5483,7 +5483,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"HeadOffice\",\n    \"description\": \"Control over all admin\",\n    \"business_id\": \"01hrb6wtk4q84kvbb8gqfpsqry\",\n    \"permissions\": [25]\n}",
+									"raw": "{\n    \"name\": \"{{$randomName}}\",\n    \"description\": \"Control over all admin\",\n    \"business_id\": \"{business_id}\",\n    \"permissions\": [25]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5603,7 +5603,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "43|CrlqVM24vf9yqer6AaRf0loaCAtreTZgmo0XJsIcc9964939"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -5736,7 +5736,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "43|CrlqVM24vf9yqer6AaRf0loaCAtreTZgmo0XJsIcc9964939"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -5749,7 +5749,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"SuperAdmin\",\n    \"description\": \"Control over all admin\",\n    \"business_id\": \"01hqadv5wy2fs3t3ryy5ge77qd\",\n    \"permissions\": [50]\n}",
+									"raw": "{\n    \"name\": \"{{$randomname}}\",\n    \"description\": \"Control over all admin\",\n    \"business_id\": \"{business_id}\",\n    \"permissions\": [50]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
