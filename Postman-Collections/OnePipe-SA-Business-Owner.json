@@ -25,7 +25,7 @@
 											"    pm.response.to.have.status(200);",
 											"});",
 											"",
-											"pm.collectionVariables.set(\"employee_id\", jsonData.id);",
+											"pm.collectionVariables.set(\"employee_id\", jsonData.employee.id);",
 											"",
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -99,7 +99,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"{{$randomName}}\",\n    \"last_name\": \"{{$randomName}}\",\n    \"email_address\": \"{{$randomEmail}}\",\n    \"phone_number\": \"8145362789\",\n    \"employement_date\": \"2024-02-12 00:00:00\",\n    \"job_title\": \"QA\",\n    \"annual_net_salary\": \"100000000\",\n    \"annual_gross_salary\": \"150000000\",\n    \"bank_id\": \"01hrfgtn5mbaxsw6zhzn8w53hh\",\n    \"business_id\": \"01hrnm4ndcve9zp01m928heejv\",\n    \"account_name\": \"MOSES  EBUKA GEORGE\",\n    \"account_number\": \"0045795119\"\n}\n",
+									"raw": "{\n    \"first_name\": \"{{$randomFirstName}}\",\n    \"last_name\": \"{{$randomLastName}}\",\n    \"email_address\": \"{{$randomEmail}}\",\n    \"phone_number\": \"8145362779\",\n    \"employement_date\": \"2024-02-12 00:00:00\",\n    \"job_title\": \"QA\",\n    \"annual_net_salary\": \"100000000\",\n    \"annual_gross_salary\": \"150000000\",\n    \"bank_id\": \"01hrfgtxn9zpm4z2cf51t9rew4\",\n    \"business_id\": \"01hrnm4ndcve9zp01m928heejv\",\n    \"account_name\": \"MOSES  EBUKA GEORGE\",\n    \"account_number\": \"1007945290\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1319,7 +1319,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "GET",
@@ -1336,7 +1336,7 @@
 										"disabled": true
 									}
 								],
-								"url": "{{baseUrl}}/api/employee/01hqama3kj3ddgnh76v9wntrd3"
+								"url": "{{baseUrl}}/api/employee/{{employee_id}}"
 							},
 							"response": [
 								{
