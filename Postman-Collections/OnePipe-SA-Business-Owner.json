@@ -1874,7 +1874,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -1893,7 +1893,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"employee_id\": \"01hq1sz0jdmfahcqtg4649szfd\",\n    \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\"\n}",
+									"raw": "{\n    \"employee_id\": \"{employee_id}\",\n    \"business_id\": \"{business_id}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1999,7 +1999,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "2|PKOQUvIcR4AXA9IukxsytPnTBoLFTOwqdSTWEIMyf62ee9d4"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -2014,7 +2014,7 @@
 										},
 										{
 											"key": "businessId",
-											"value": "01hpz4rh1v4388mww8j2ewk0vn",
+											"value": "{{business_id}}",
 											"type": "text"
 										}
 									]
@@ -2146,7 +2146,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
@@ -2164,7 +2164,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/audit?businessId=01hqadv5wy2fs3t3ryy5ge77qd",
+							"raw": "{{baseUrl}}/api/audit?businessId={{business_id}}",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -2175,7 +2175,7 @@
 							"query": [
 								{
 									"key": "businessId",
-									"value": "01hqadv5wy2fs3t3ryy5ge77qd"
+									"value": "{{business_id}}"
 								}
 							]
 						}
@@ -2308,7 +2308,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
@@ -2470,7 +2470,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
@@ -2628,7 +2628,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -2768,7 +2768,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -2909,7 +2909,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -3050,7 +3050,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -3191,7 +3191,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -3218,7 +3218,7 @@
 								},
 								{
 									"key": "business_id",
-									"value": "01hqadv5wy2fs3t3ryy5ge77qd",
+									"value": "{{business_id}}",
 									"type": "text"
 								},
 								{
@@ -3416,7 +3416,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -3443,7 +3443,7 @@
 								},
 								{
 									"key": "business_id",
-									"value": "01hqadv5wy2fs3t3ryy5ge77qd",
+									"value": "{{business_id}}",
 									"type": "text"
 								},
 								{
@@ -3642,7 +3642,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -3868,7 +3868,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
@@ -4096,7 +4096,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "151|uQLk2X6vtcwzTgQATIz8R7gaMsDEgjXzcewOKFgu832b23cf"
+								"token": "{{token}}"
 							}
 						},
 						"method": "POST",
