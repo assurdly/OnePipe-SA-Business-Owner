@@ -8292,7 +8292,7 @@
 										"exec": [
 											"pm.test(\"Response status code is 401\", function () {",
 											"    pm.response.to.have.status(422);",
-											"});",
+											"}); ",
 											"",
 											"pm.test(\"Response is a JSON object with a message property\", function () {",
 											"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('message');",
@@ -8348,7 +8348,7 @@
 										"exec": [
 											"pm.test(\"Response status code is 401\", function () {",
 											"    pm.response.to.have.status(401);",
-											"});",
+											"}); ",
 											"",
 											"pm.test(\"Response is a JSON object with a message property\", function () {",
 											"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('message');",
@@ -8398,7 +8398,7 @@
 										"exec": [
 											"pm.test(\"Response status code is 422\", function () {",
 											"    pm.response.to.have.status(422);",
-											"});",
+											"}); ",
 											"",
 											"pm.test(\"Response is a JSON object with message and errors properties\", function () {",
 											"    pm.expect(pm.response.json()).to.be.an('object').that.has.all.keys('message', 'errors');",
@@ -8468,7 +8468,7 @@
 										"exec": [
 											"pm.test(\"Response status code is 422\", function () {",
 											"    pm.response.to.have.status(422);",
-											"});",
+											"}); ",
 											"",
 											"pm.test(\"Response is an object with message and errors properties\", function () {",
 											"    var jsonData = pm.response.json();",
@@ -8526,7 +8526,7 @@
 											"pm.test(\"Response is an object with message and errors properties\", function () {",
 											"    var jsonData = pm.response.json();",
 											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('message', 'errors');",
-											"});"
+											"}); "
 										],
 										"type": "text/javascript"
 									}
@@ -8623,7 +8623,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"Moses\",\n    \"last_name\": \"George\",\n    \"email\": \"mosesgeorge2605@gmail.com\",\n    \"phone_number\": \"8173854809\",\n    \"business_name\": \"Assurdly Business 4\",\n    \"rc_number\": \"21244543\",\n    \"business_type\": \"Marketing\",\n    \"password\": \"Qwerty123@\"\n}",
+									"raw": "{\n    \"first_name\": \"Moses\",\n    \"last_name\": \"George\",\n    \"email\": \"moses@assurdly.com\",\n    \"phone_number\": \"8173854809\",\n    \"business_name\": \"Assurdly Business\",\n    \"rc_number\": \"21244545\",\n    \"business_type\": \"Marketing\",\n    \"password\": \"Qwerty123@\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8712,7 +8712,7 @@
 											"// Test for response status code",
 											"pm.test(\"Response status code is 422\", function () {",
 											"    pm.response.to.have.status(422);",
-											"});",
+											"}); ",
 											"",
 											"// Test for response content type",
 											"pm.test(\"Response has JSON content type\", function () {",
@@ -8843,7 +8843,7 @@
 											"pm.test(\"Response status code is 422\", function () {",
 											"    pm.response.to.have.status(422);",
 											"});",
-											"",
+											" ",
 											"// Test for response content type",
 											"pm.test(\"Response has JSON content type\", function () {",
 											"    pm.response.to.have.header('Content-Type', 'application/json');",
@@ -8972,7 +8972,7 @@
 											"// Test for response status code",
 											"pm.test(\"Response status code is 422\", function () {",
 											"    pm.response.to.have.status(422);",
-											"});",
+											"}); ",
 											"",
 											"// Test for response content type",
 											"pm.test(\"Response has JSON content type\", function () {",
@@ -9103,7 +9103,7 @@
 											"pm.test(\"Response status code is 422\", function () {",
 											"    pm.response.to.have.status(422);",
 											"});",
-											"",
+											" ",
 											"// Test for response content type",
 											"pm.test(\"Response has JSON content type\", function () {",
 											"    pm.response.to.have.header('Content-Type', 'application/json');",
@@ -9233,7 +9233,7 @@
 											"pm.test(\"Response status code is 422\", function () {",
 											"    pm.response.to.have.status(422);",
 											"});",
-											"",
+											" ",
 											"// Test for response content type",
 											"pm.test(\"Response has JSON content type\", function () {",
 											"    pm.response.to.have.header('Content-Type', 'application/json');",
@@ -9362,7 +9362,7 @@
 											"// Test for response status code",
 											"pm.test(\"Response status code is 422\", function () {",
 											"    pm.response.to.have.status(422);",
-											"});",
+											"}); ",
 											"",
 											"// Test for response content type",
 											"pm.test(\"Response has JSON content type\", function () {",
@@ -9493,7 +9493,7 @@
 											"pm.test(\"Response status code is 422\", function () {",
 											"    pm.response.to.have.status(422);",
 											"});",
-											"",
+											" ",
 											"// Test for response content type",
 											"pm.test(\"Response has JSON content type\", function () {",
 											"    pm.response.to.have.header('Content-Type', 'application/json');",
