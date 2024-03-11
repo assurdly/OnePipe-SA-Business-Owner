@@ -1,0 +1,1 @@
+{"data":{"customer_id":null,"account_name":"MOSES  EBUKA GEORGE","account_number":"0045795119","last_name":null,"first_name":null,"middle_name":null,"gender":null,"account_currency":null,"dob":null,"scheme_code":null,"account_status":null,"mobile_number":null,"reference":"01HRNS23T8E5QR9EX9ME7RMJWP","bvn":null,"meta":[]},"message":"Account name fetched successfully","code":200}

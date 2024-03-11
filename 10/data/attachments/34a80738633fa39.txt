@@ -1,0 +1,1 @@
+{"message":"The business name has already been taken. (and 1 more error)","errors":{"business_name":["The business name has already been taken."],"rc_number":["The rc number has already been taken."]}}

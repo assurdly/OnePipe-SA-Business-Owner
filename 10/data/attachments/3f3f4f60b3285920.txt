@@ -1,0 +1,1 @@
+{"message":"The email field must be a valid email address. (and 2 more errors)","errors":{"email":["The email field must be a valid email address."],"business_name":["The business name has already been taken."],"rc_number":["The rc number has already been taken."]}}
