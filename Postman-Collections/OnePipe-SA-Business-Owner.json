@@ -13262,50 +13262,13 @@
 							"script": {
 								"id": "45523a14-24cc-453d-962c-6c9a89d85aa1",
 								"exec": [
-									"pm.test(\"Response status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
 									"});",
 									"",
-									"pm.test(\"Response is a JSON object with data property\", function () {",
-									"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
-									"});",
 									"",
-									"pm.test(\"Response data object has id, reference, business_id, payroll_id, employee_id, type, narration, amount, and status properties\", function () {",
-									"    var data = pm.response.json().data;",
-									"    pm.expect(data).to.have.property('id');",
-									"    pm.expect(data).to.have.property('reference');",
-									"    pm.expect(data).to.have.property('business_id');",
-									"    pm.expect(data).to.have.property('payroll_id');",
-									"    pm.expect(data).to.have.property('employee_id');",
-									"    pm.expect(data).to.have.property('type');",
-									"    pm.expect(data).to.have.property('narration');",
-									"    pm.expect(data).to.have.property('amount');",
-									"    pm.expect(data).to.have.property('status');",
-									"});",
-									"",
-									"pm.test(\"Response data object has business and employee properties\", function () {",
-									"    var data = pm.response.json().data;",
-									"    pm.expect(data).to.have.property('business').that.is.an('object');",
-									"    pm.expect(data).to.have.property('employee').that.is.an('object');",
-									"});",
-									"",
-									"pm.test(\"Business object has business_name, rc_number, email, phone_number, and business_type properties\", function () {",
-									"    var business = pm.response.json().data.business;",
-									"    pm.expect(business).to.have.property('business_name');",
-									"    pm.expect(business).to.have.property('rc_number');",
-									"    pm.expect(business).to.have.property('email');",
-									"    pm.expect(business).to.have.property('phone_number');",
-									"    pm.expect(business).to.have.property('business_type');",
-									"});",
-									"",
-									"pm.test(\"Employee object has first_name, last_name, email_address, phone_number, employement_date, and job_title properties\", function () {",
-									"    var employee = pm.response.json().data.employee;",
-									"    pm.expect(employee).to.have.property('first_name');",
-									"    pm.expect(employee).to.have.property('last_name');",
-									"    pm.expect(employee).to.have.property('email_address');",
-									"    pm.expect(employee).to.have.property('phone_number');",
-									"    pm.expect(employee).to.have.property('employement_date');",
-									"    pm.expect(employee).to.have.property('job_title');",
+									"pm.test(\"Response has message properties\", function () {",
+									"    pm.expect(pm.response.json()).to.have.all.keys('message');",
 									"});"
 								],
 								"type": "text/javascript",
@@ -13351,9 +13314,8 @@
 							],
 							"variable": [
 								{
-									"id": "059e283e-ebaf-47fa-8f28-44abfc91bcfd",
 									"key": "transactionId",
-									"value": "01hrsnecsbxtdm3bdqjphn9en3"
+									"value": "01hrsnecsbxtdm3bdqjphn9en45"
 								}
 							]
 						}
@@ -13361,6 +13323,161 @@
 					"response": [
 						{
 							"id": "257bc322-e8bd-4c00-b814-df21f61cd32a",
+							"name": "Get  Transaction details By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/transaction/details/:transactionId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"transaction",
+										"details",
+										":transactionId"
+									],
+									"variable": [
+										{
+											"key": "transactionId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 01:17:15 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 01:17:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"data\": {\n        \"id\": \"01hrqkwh4g54t6rfcxa2wvbf8d\",\n        \"reference\": \"01HRQKWH4G54T6RFCXA2WVBF8C\",\n        \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n        \"payroll_id\": \"01hrqkwh45fr4m120jqzz0aksy\",\n        \"loan_id\": null,\n        \"employee_id\": \"01hq1ns9zhpd730x7510mayj2f\",\n        \"type\": \"PAYROLL\",\n        \"narration\": \"SALARY/May 2024 Payroll\",\n        \"amount\": \"83333.33\",\n        \"status\": \"pending\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-03-11T20:39:53.000000Z\",\n        \"updated_at\": \"2024-03-11T20:39:53.000000Z\",\n        \"business\": {\n            \"id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n            \"business_name\": \"Habeeb12\",\n            \"rc_number\": \"123456\",\n            \"email\": null,\n            \"phone_number\": null,\n            \"business_type\": \"Telecommunications\",\n            \"state_id\": \"01hq1khn0zhdfddzyw4p5506rs\",\n            \"bank_details_id\": \"01hq8bxbgns30qe3vaqxd3rcv4\",\n            \"address\": \"No 3 Eromosel Avenue, Lagos\",\n            \"enable_sms\": 0,\n            \"enable_email\": 0,\n            \"has_completed_kyb\": 1,\n            \"owner_id\": \"01hq1kpxmkxjjs46pv5kz9pms4\",\n            \"status\": \"active\",\n            \"created_at\": \"2024-02-19T21:17:50.000000Z\",\n            \"updated_at\": \"2024-02-22T12:16:13.000000Z\"\n        }\n    },\n    \"message\": \"Transaction details fetched successfully\",\n    \"code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Get  Transaction details with empty ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "45523a14-24cc-453d-962c-6c9a89d85aa1",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has message properties\", function () {",
+									"    pm.expect(pm.response.json()).to.have.all.keys('message');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "2212c4eb-3dd6-4fc0-bb42-9634b907d39a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/transaction/details/:transactionId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"transaction",
+								"details",
+								":transactionId"
+							],
+							"variable": [
+								{
+									"key": "transactionId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "f881692c-dba9-49a3-a0ac-864ff2929f20",
 							"name": "Get  Transaction details By ID",
 							"originalRequest": {
 								"method": "GET",
