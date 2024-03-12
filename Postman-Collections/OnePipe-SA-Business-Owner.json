@@ -7490,6 +7490,232 @@
 							"body": "{\n    \"message\": \"Settlment bank details updated sucessfully\",\n    \"code\": 200\n}"
 						}
 					]
+				},
+				{
+					"name": "Enable/Disable email",
+					"id": "7512d311-1f4e-432c-ad1f-fc77262245f1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"enable_email\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/setting/set-notification"
+					},
+					"response": [
+						{
+							"id": "a3451a1a-941a-4e07-8a54-3b49e7b3e598",
+							"name": "Add document",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"document_name\": \"Certificate of Incorporation\",\n    \"document_size\": \"2MB\",\n    \"document_type\": \"JPEG\",\n    \"mandatory\": \"yes\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/setting/add-document"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"document_name\": \"Certificate of Incorporation\",\n        \"document_size\": \"2MB\",\n        \"document_type\": \"JPEG\",\n        \"mandatory\": \"yes\",\n        \"id\": \"01hp0kdcaq9rgj08409mc5xmwy\",\n        \"updated_at\": \"2024-02-07T01:37:41.000000Z\",\n        \"created_at\": \"2024-02-07T01:37:41.000000Z\"\n    },\n    \"pagination\": null,\n    \"message\": \"Kyb setting created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Enable/Disable sms",
+					"id": "771fcc2e-c00d-4627-944a-2bf390148487",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"enable_sms\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/setting/set-notification"
+					},
+					"response": [
+						{
+							"id": "619788cc-e994-4c25-b3f7-2c30f656388e",
+							"name": "Add document",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"document_name\": \"Certificate of Incorporation\",\n    \"document_size\": \"2MB\",\n    \"document_type\": \"JPEG\",\n    \"mandatory\": \"yes\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/setting/add-document"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"document_name\": \"Certificate of Incorporation\",\n        \"document_size\": \"2MB\",\n        \"document_type\": \"JPEG\",\n        \"mandatory\": \"yes\",\n        \"id\": \"01hp0kdcaq9rgj08409mc5xmwy\",\n        \"updated_at\": \"2024-02-07T01:37:41.000000Z\",\n        \"created_at\": \"2024-02-07T01:37:41.000000Z\"\n    },\n    \"pagination\": null,\n    \"message\": \"Kyb setting created successfully\"\n}"
+						}
+					]
 				}
 			],
 			"id": "de25e8da-6476-4cdc-922a-5febd7d47a93"
