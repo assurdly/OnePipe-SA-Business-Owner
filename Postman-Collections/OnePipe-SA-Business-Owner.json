@@ -12911,6 +12911,544 @@
 				}
 			],
 			"id": "8c3bb97d-3031-4a3b-80ce-88d2acdc9bb1"
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "Get  List of Transactions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6f9db038-ebea-44f0-800f-7ebca0322ddf",
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has a success property\", function () {",
+									"    pm.expect(pm.response.json()).to.have.property('success');",
+									"});",
+									"",
+									"pm.test(\"Response has data array with specific properties\", function () {",
+									"    var data = pm.response.json().data;",
+									"    data.forEach(function(transaction) {",
+									"        pm.expect(transaction).to.have.property('id');",
+									"        pm.expect(transaction).to.have.property('transaction_ref');",
+									"        pm.expect(transaction).to.have.property('type');",
+									"        pm.expect(transaction).to.have.property('amount');",
+									"        pm.expect(transaction).to.have.property('narration');",
+									"        pm.expect(transaction).to.have.property('employee_name');",
+									"        pm.expect(transaction).to.have.property('status');",
+									"        pm.expect(transaction).to.have.property('date');",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Response has a pagination object with specific properties\", function () {",
+									"    var pagination = pm.response.json().pagination;",
+									"    pm.expect(pagination).to.have.property('current_page');",
+									"    pm.expect(pagination).to.have.property('per_page');",
+									"    pm.expect(pagination).to.have.property('total');",
+									"    pm.expect(pagination).to.have.property('next_page_url');",
+									"    pm.expect(pagination).to.have.property('prev_page_url');",
+									"});",
+									"",
+									"pm.test(\"Response has a message property\", function () {",
+									"    pm.expect(pm.response.json()).to.have.property('message');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "96c9c520-1011-4051-91e5-56e23def095d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{baseUrl}}/api/transaction"
+					},
+					"response": [
+						{
+							"id": "92cbd58e-1d81-414f-bab6-8113758c1540",
+							"name": "Get  List of Transactions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": "{{baseUrl}}/api/transaction"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 01:15:14 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 01:15:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": \"01hrqkwh4g54t6rfcxa2wvbf8d\",\n            \"transaction_ref\": \"01HRQKWH4G54T6RFCXA2WVBF8C\",\n            \"type\": \"PAYROLL\",\n            \"amount\": \"83,333.33\",\n            \"narration\": \"SALARY/May 2024 Payroll\",\n            \"employee_name\": \"Habeeb Hab\",\n            \"status\": \"pending\",\n            \"date\": \"11/03/2024 @ 09:39PM\"\n        },\n        {\n            \"id\": \"01hrqkwh4mz7zm9yph1qx1veqf\",\n            \"transaction_ref\": \"01HRQKWH4MZ7ZM9YPH1QX1VEQE\",\n            \"type\": \"PAYROLL\",\n            \"amount\": \"833.33\",\n            \"narration\": \"SALARY/May 2024 Payroll\",\n            \"employee_name\": \"Test Test1\",\n            \"status\": \"successful\",\n            \"date\": \"11/03/2024 @ 09:39PM\"\n        },\n        {\n            \"id\": \"01hrqkwh4tj0wfz61z5vw3g94m\",\n            \"transaction_ref\": \"01HRQKWH4TJ0WFZ61Z5VW3G94K\",\n            \"type\": \"PAYROLL\",\n            \"amount\": \"833.33\",\n            \"narration\": \"SALARY/May 2024 Payroll\",\n            \"employee_name\": \"Test2 Test2\",\n            \"status\": \"failed\",\n            \"date\": \"11/03/2024 @ 09:39PM\"\n        }\n    ],\n    \"pagination\": {\n        \"current_page\": 1,\n        \"per_page\": 10,\n        \"total\": 3,\n        \"next_page_url\": null,\n        \"prev_page_url\": null\n    },\n    \"message\": \"List of transactions fetched successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get  Transaction details By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "45523a14-24cc-453d-962c-6c9a89d85aa1",
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is a JSON object with data property\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
+									"});",
+									"",
+									"pm.test(\"Response data object has id, reference, business_id, payroll_id, employee_id, type, narration, amount, and status properties\", function () {",
+									"    var data = pm.response.json().data;",
+									"    pm.expect(data).to.have.property('id');",
+									"    pm.expect(data).to.have.property('reference');",
+									"    pm.expect(data).to.have.property('business_id');",
+									"    pm.expect(data).to.have.property('payroll_id');",
+									"    pm.expect(data).to.have.property('employee_id');",
+									"    pm.expect(data).to.have.property('type');",
+									"    pm.expect(data).to.have.property('narration');",
+									"    pm.expect(data).to.have.property('amount');",
+									"    pm.expect(data).to.have.property('status');",
+									"});",
+									"",
+									"pm.test(\"Response data object has business and employee properties\", function () {",
+									"    var data = pm.response.json().data;",
+									"    pm.expect(data).to.have.property('business').that.is.an('object');",
+									"    pm.expect(data).to.have.property('employee').that.is.an('object');",
+									"});",
+									"",
+									"pm.test(\"Business object has business_name, rc_number, email, phone_number, and business_type properties\", function () {",
+									"    var business = pm.response.json().data.business;",
+									"    pm.expect(business).to.have.property('business_name');",
+									"    pm.expect(business).to.have.property('rc_number');",
+									"    pm.expect(business).to.have.property('email');",
+									"    pm.expect(business).to.have.property('phone_number');",
+									"    pm.expect(business).to.have.property('business_type');",
+									"});",
+									"",
+									"pm.test(\"Employee object has first_name, last_name, email_address, phone_number, employement_date, and job_title properties\", function () {",
+									"    var employee = pm.response.json().data.employee;",
+									"    pm.expect(employee).to.have.property('first_name');",
+									"    pm.expect(employee).to.have.property('last_name');",
+									"    pm.expect(employee).to.have.property('email_address');",
+									"    pm.expect(employee).to.have.property('phone_number');",
+									"    pm.expect(employee).to.have.property('employement_date');",
+									"    pm.expect(employee).to.have.property('job_title');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "438f10ea-82f8-42ec-8fc1-9deb6275526f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/transaction/details/:transactionId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"transaction",
+								"details",
+								":transactionId"
+							],
+							"variable": [
+								{
+									"key": "transactionId",
+									"value": "01hrsnecsbxtdm3bdqjphn9en3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "8f0d60bd-388e-4e89-b259-9328268161c2",
+							"name": "Get  Transaction details By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/transaction/details/:transactionId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"transaction",
+										"details",
+										":transactionId"
+									],
+									"variable": [
+										{
+											"key": "transactionId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 01:17:15 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 01:17:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"data\": {\n        \"id\": \"01hrqkwh4g54t6rfcxa2wvbf8d\",\n        \"reference\": \"01HRQKWH4G54T6RFCXA2WVBF8C\",\n        \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n        \"payroll_id\": \"01hrqkwh45fr4m120jqzz0aksy\",\n        \"loan_id\": null,\n        \"employee_id\": \"01hq1ns9zhpd730x7510mayj2f\",\n        \"type\": \"PAYROLL\",\n        \"narration\": \"SALARY/May 2024 Payroll\",\n        \"amount\": \"83333.33\",\n        \"status\": \"pending\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-03-11T20:39:53.000000Z\",\n        \"updated_at\": \"2024-03-11T20:39:53.000000Z\",\n        \"business\": {\n            \"id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n            \"business_name\": \"Habeeb12\",\n            \"rc_number\": \"123456\",\n            \"email\": null,\n            \"phone_number\": null,\n            \"business_type\": \"Telecommunications\",\n            \"state_id\": \"01hq1khn0zhdfddzyw4p5506rs\",\n            \"bank_details_id\": \"01hq8bxbgns30qe3vaqxd3rcv4\",\n            \"address\": \"No 3 Eromosel Avenue, Lagos\",\n            \"enable_sms\": 0,\n            \"enable_email\": 0,\n            \"has_completed_kyb\": 1,\n            \"owner_id\": \"01hq1kpxmkxjjs46pv5kz9pms4\",\n            \"status\": \"active\",\n            \"created_at\": \"2024-02-19T21:17:50.000000Z\",\n            \"updated_at\": \"2024-02-22T12:16:13.000000Z\"\n        }\n    },\n    \"message\": \"Transaction details fetched successfully\",\n    \"code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Get  Transaction details with Invalid ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "45523a14-24cc-453d-962c-6c9a89d85aa1",
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is a JSON object with data property\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('data');",
+									"});",
+									"",
+									"pm.test(\"Response data object has id, reference, business_id, payroll_id, employee_id, type, narration, amount, and status properties\", function () {",
+									"    var data = pm.response.json().data;",
+									"    pm.expect(data).to.have.property('id');",
+									"    pm.expect(data).to.have.property('reference');",
+									"    pm.expect(data).to.have.property('business_id');",
+									"    pm.expect(data).to.have.property('payroll_id');",
+									"    pm.expect(data).to.have.property('employee_id');",
+									"    pm.expect(data).to.have.property('type');",
+									"    pm.expect(data).to.have.property('narration');",
+									"    pm.expect(data).to.have.property('amount');",
+									"    pm.expect(data).to.have.property('status');",
+									"});",
+									"",
+									"pm.test(\"Response data object has business and employee properties\", function () {",
+									"    var data = pm.response.json().data;",
+									"    pm.expect(data).to.have.property('business').that.is.an('object');",
+									"    pm.expect(data).to.have.property('employee').that.is.an('object');",
+									"});",
+									"",
+									"pm.test(\"Business object has business_name, rc_number, email, phone_number, and business_type properties\", function () {",
+									"    var business = pm.response.json().data.business;",
+									"    pm.expect(business).to.have.property('business_name');",
+									"    pm.expect(business).to.have.property('rc_number');",
+									"    pm.expect(business).to.have.property('email');",
+									"    pm.expect(business).to.have.property('phone_number');",
+									"    pm.expect(business).to.have.property('business_type');",
+									"});",
+									"",
+									"pm.test(\"Employee object has first_name, last_name, email_address, phone_number, employement_date, and job_title properties\", function () {",
+									"    var employee = pm.response.json().data.employee;",
+									"    pm.expect(employee).to.have.property('first_name');",
+									"    pm.expect(employee).to.have.property('last_name');",
+									"    pm.expect(employee).to.have.property('email_address');",
+									"    pm.expect(employee).to.have.property('phone_number');",
+									"    pm.expect(employee).to.have.property('employement_date');",
+									"    pm.expect(employee).to.have.property('job_title');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "9df06675-2356-45f2-a9e6-a4bff3a2e3d4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/transaction/details/:transactionId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"transaction",
+								"details",
+								":transactionId"
+							],
+							"variable": [
+								{
+									"id": "059e283e-ebaf-47fa-8f28-44abfc91bcfd",
+									"key": "transactionId",
+									"value": "01hrsnecsbxtdm3bdqjphn9en3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "257bc322-e8bd-4c00-b814-df21f61cd32a",
+							"name": "Get  Transaction details By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/transaction/details/:transactionId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"transaction",
+										"details",
+										":transactionId"
+									],
+									"variable": [
+										{
+											"key": "transactionId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 01:17:15 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Mar 2024 01:17:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"data\": {\n        \"id\": \"01hrqkwh4g54t6rfcxa2wvbf8d\",\n        \"reference\": \"01HRQKWH4G54T6RFCXA2WVBF8C\",\n        \"business_id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n        \"payroll_id\": \"01hrqkwh45fr4m120jqzz0aksy\",\n        \"loan_id\": null,\n        \"employee_id\": \"01hq1ns9zhpd730x7510mayj2f\",\n        \"type\": \"PAYROLL\",\n        \"narration\": \"SALARY/May 2024 Payroll\",\n        \"amount\": \"83333.33\",\n        \"status\": \"pending\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-03-11T20:39:53.000000Z\",\n        \"updated_at\": \"2024-03-11T20:39:53.000000Z\",\n        \"business\": {\n            \"id\": \"01hq1kpxkvma8gbjx328hjkh7k\",\n            \"business_name\": \"Habeeb12\",\n            \"rc_number\": \"123456\",\n            \"email\": null,\n            \"phone_number\": null,\n            \"business_type\": \"Telecommunications\",\n            \"state_id\": \"01hq1khn0zhdfddzyw4p5506rs\",\n            \"bank_details_id\": \"01hq8bxbgns30qe3vaqxd3rcv4\",\n            \"address\": \"No 3 Eromosel Avenue, Lagos\",\n            \"enable_sms\": 0,\n            \"enable_email\": 0,\n            \"has_completed_kyb\": 1,\n            \"owner_id\": \"01hq1kpxmkxjjs46pv5kz9pms4\",\n            \"status\": \"active\",\n            \"created_at\": \"2024-02-19T21:17:50.000000Z\",\n            \"updated_at\": \"2024-02-22T12:16:13.000000Z\"\n        }\n    },\n    \"message\": \"Transaction details fetched successfully\",\n    \"code\": 200\n}"
+						}
+					]
+				}
+			],
+			"id": "767ba0cb-b08b-4dbd-9e4f-6defb489b8c4"
 		}
 	],
 	"event": [
