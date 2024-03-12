@@ -39,7 +39,8 @@
 											"    pm.expect(pm.response.json()).to.have.property('user');",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -64,7 +65,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"{{$randomFirstName}}\",\n    \"last_name\": \"{{$randomLastName}}\",\n    \"email\": \"{{$randomEmail}}\",\n    \"phone_number\": \"8173824809\",\n    \"business_name\": \"{{$randomBusinessName}}\",\n    \"rc_number\": \"21244544\",\n    \"business_type\": \"Marketing\",\n    \"password\": \"Qwerty123@\"\n}",
+									"raw": "{\n    \"first_name\": \"{{$randomFirstName}}\",\n    \"last_name\": \"{{$randomLastName}}\",\n    \"email\": \"moses@assurdly.com\",\n    \"phone_number\": \"8173824800\",\n    \"business_name\": \"Assurdly Testers\",\n    \"rc_number\": \"21244544\",\n    \"business_type\": \"Marketing\",\n    \"password\": \"Qwerty123@\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
