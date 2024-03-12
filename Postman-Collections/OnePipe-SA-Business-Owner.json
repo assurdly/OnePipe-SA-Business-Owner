@@ -7780,12 +7780,191 @@
 					]
 				},
 				{
+					"name": "Enable/Disable email with empty string",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2feb710-145f-4060-8f93-8ebe95dce3fe",
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is a JSON object with success property\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('object').that.has.property('success');",
+									"});",
+									"",
+									"pm.test(\"Response data contains owner object with email property\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.owner).to.be.an('object').that.has.property('email');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "c39d1565-031f-439c-b233-6c40ac64324e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"enable_email\": \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/setting/set-notification"
+					},
+					"response": [
+						{
+							"id": "c2ec4f6b-2b14-4181-9a9c-4447ebf690e9",
+							"name": "Add document",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"document_name\": \"Certificate of Incorporation\",\n    \"document_size\": \"2MB\",\n    \"document_type\": \"JPEG\",\n    \"mandatory\": \"yes\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/setting/add-document"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"document_name\": \"Certificate of Incorporation\",\n        \"document_size\": \"2MB\",\n        \"document_type\": \"JPEG\",\n        \"mandatory\": \"yes\",\n        \"id\": \"01hp0kdcaq9rgj08409mc5xmwy\",\n        \"updated_at\": \"2024-02-07T01:37:41.000000Z\",\n        \"created_at\": \"2024-02-07T01:37:41.000000Z\"\n    },\n    \"pagination\": null,\n    \"message\": \"Kyb setting created successfully\"\n}"
+						}
+					]
+				},
+				{
 					"name": "Enable/Disable sms",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b30d2a0c-f64c-4784-b0a4-55cfe3ef1f61",
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is a JSON object with success property\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('success');",
+									"});",
+									"",
+									"pm.test(\"Response data contains id, business_name, email, and owner properties\", function () {",
+									"    var data = pm.response.json().data;",
+									"    pm.expect(data).to.be.an('object').that.includes.all.keys('id', 'business_name', 'email', 'owner');",
+									"});",
+									"",
+									"pm.test(\"Response data owner is an object with id, email, first_name, and last_name properties\", function () {",
+									"    var owner = pm.response.json().data.owner;",
+									"    pm.expect(owner).to.be.an('object').that.includes.all.keys('id', 'email', 'first_name', 'last_name');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "771fcc2e-c00d-4627-944a-2bf390148487",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -7809,11 +7988,307 @@
 								}
 							}
 						},
-						"url": "{{baseUrl}}/setting/set-notification"
+						"url": "{{baseUrl}}/api/setting/set-notification"
 					},
 					"response": [
 						{
 							"id": "619788cc-e994-4c25-b3f7-2c30f656388e",
+							"name": "Add document",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"document_name\": \"Certificate of Incorporation\",\n    \"document_size\": \"2MB\",\n    \"document_type\": \"JPEG\",\n    \"mandatory\": \"yes\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/setting/add-document"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"document_name\": \"Certificate of Incorporation\",\n        \"document_size\": \"2MB\",\n        \"document_type\": \"JPEG\",\n        \"mandatory\": \"yes\",\n        \"id\": \"01hp0kdcaq9rgj08409mc5xmwy\",\n        \"updated_at\": \"2024-02-07T01:37:41.000000Z\",\n        \"created_at\": \"2024-02-07T01:37:41.000000Z\"\n    },\n    \"pagination\": null,\n    \"message\": \"Kyb setting created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Enable/Disable sms with invalid boolean",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b30d2a0c-f64c-4784-b0a4-55cfe3ef1f61",
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is a JSON object with success property\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('success');",
+									"});",
+									"",
+									"pm.test(\"Response data contains id, business_name, email, and owner properties\", function () {",
+									"    var data = pm.response.json().data;",
+									"    pm.expect(data).to.be.an('object').that.includes.all.keys('id', 'business_name', 'email', 'owner');",
+									"});",
+									"",
+									"pm.test(\"Response data owner is an object with id, email, first_name, and last_name properties\", function () {",
+									"    var owner = pm.response.json().data.owner;",
+									"    pm.expect(owner).to.be.an('object').that.includes.all.keys('id', 'email', 'first_name', 'last_name');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "0cc2f5d5-3560-4987-94d0-d1ef6f99a889",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"enable_sms\": yes\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/setting/set-notification"
+					},
+					"response": [
+						{
+							"id": "4e1f6804-ccf4-4d89-af13-c55453df93ef",
+							"name": "Add document",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"document_name\": \"Certificate of Incorporation\",\n    \"document_size\": \"2MB\",\n    \"document_type\": \"JPEG\",\n    \"mandatory\": \"yes\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/setting/add-document"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"document_name\": \"Certificate of Incorporation\",\n        \"document_size\": \"2MB\",\n        \"document_type\": \"JPEG\",\n        \"mandatory\": \"yes\",\n        \"id\": \"01hp0kdcaq9rgj08409mc5xmwy\",\n        \"updated_at\": \"2024-02-07T01:37:41.000000Z\",\n        \"created_at\": \"2024-02-07T01:37:41.000000Z\"\n    },\n    \"pagination\": null,\n    \"message\": \"Kyb setting created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Enable/Disable sms with empty boolean",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b30d2a0c-f64c-4784-b0a4-55cfe3ef1f61",
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is a JSON object with success property\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('success');",
+									"});",
+									"",
+									"pm.test(\"Response data contains id, business_name, email, and owner properties\", function () {",
+									"    var data = pm.response.json().data;",
+									"    pm.expect(data).to.be.an('object').that.includes.all.keys('id', 'business_name', 'email', 'owner');",
+									"});",
+									"",
+									"pm.test(\"Response data owner is an object with id, email, first_name, and last_name properties\", function () {",
+									"    var owner = pm.response.json().data.owner;",
+									"    pm.expect(owner).to.be.an('object').that.includes.all.keys('id', 'email', 'first_name', 'last_name');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "31c4fbcd-c9ea-4d27-91a9-fb06bc223378",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"enable_sms\": \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/setting/set-notification"
+					},
+					"response": [
+						{
+							"id": "d2dde78e-c04b-46f8-ad63-b99e5b2882ca",
 							"name": "Add document",
 							"originalRequest": {
 								"method": "POST",
