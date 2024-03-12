@@ -7493,11 +7493,42 @@
 				},
 				{
 					"name": "Enable/Disable email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2feb710-145f-4060-8f93-8ebe95dce3fe",
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is a JSON object with success property\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('object').that.has.property('success');",
+									"});",
+									"",
+									"pm.test(\"Response data contains owner object with email property\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.owner).to.be.an('object').that.has.property('email');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "7512d311-1f4e-432c-ad1f-fc77262245f1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -7514,18 +7545,162 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"enable_email\": true\n}",
+							"raw": "{\n    \"enable_email\": false\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{baseUrl}}/setting/set-notification"
+						"url": "{{baseUrl}}/api/setting/set-notification"
 					},
 					"response": [
 						{
 							"id": "a3451a1a-941a-4e07-8a54-3b49e7b3e598",
+							"name": "Add document",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"document_name\": \"Certificate of Incorporation\",\n    \"document_size\": \"2MB\",\n    \"document_type\": \"JPEG\",\n    \"mandatory\": \"yes\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/setting/add-document"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Feb 2024 01:37:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"document_name\": \"Certificate of Incorporation\",\n        \"document_size\": \"2MB\",\n        \"document_type\": \"JPEG\",\n        \"mandatory\": \"yes\",\n        \"id\": \"01hp0kdcaq9rgj08409mc5xmwy\",\n        \"updated_at\": \"2024-02-07T01:37:41.000000Z\",\n        \"created_at\": \"2024-02-07T01:37:41.000000Z\"\n    },\n    \"pagination\": null,\n    \"message\": \"Kyb setting created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Enable/Disable email with invalid boolean",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2feb710-145f-4060-8f93-8ebe95dce3fe",
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response is a JSON object with success property\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('object').that.has.property('success');",
+									"});",
+									"",
+									"pm.test(\"Response data contains owner object with email property\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data.owner).to.be.an('object').that.has.property('email');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "3c27179f-89b3-49f3-b6a8-e58dead6cec3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"enable_email\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/setting/set-notification"
+					},
+					"response": [
+						{
+							"id": "321ab36b-2678-4c24-8e61-0ebc8084b3fa",
 							"name": "Add document",
 							"originalRequest": {
 								"method": "POST",
