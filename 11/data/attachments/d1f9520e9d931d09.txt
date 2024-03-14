@@ -1,0 +1,1 @@
+{"success":true,"data":{"name":"SuperAdmin","description":"Control over all admin","status":"active","business_id":"01hrs6s94905154g8h2wekzd5d","updated_at":"2024-03-14T08:43:13.000000Z","created_at":"2024-03-14T08:43:13.000000Z","id":19},"pagination":null,"message":"Role created successfully"}

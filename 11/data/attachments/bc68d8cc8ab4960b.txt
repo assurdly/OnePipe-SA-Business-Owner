@@ -1,0 +1,1 @@
+{"success":true,"data":{"email":"moses+1@assurdly.com","role_id":"5","business_id":"01hrs6s94905154g8h2wekzd5d","status":"pending","id":"01hry26m5s4ztk0p1x86rtkqc3","updated_at":"2024-03-14T08:45:31.000000Z","created_at":"2024-03-14T08:45:31.000000Z","user_id":"01hry26mb6mfzdt2rr8v2hp6a1"},"pagination":null,"message":"Team Invite sent successfully"}

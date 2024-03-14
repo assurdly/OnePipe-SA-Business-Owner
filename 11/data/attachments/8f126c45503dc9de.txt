@@ -1,0 +1,1 @@
+level: warn, messages: Form param `company_logo`, file load error: missing file source

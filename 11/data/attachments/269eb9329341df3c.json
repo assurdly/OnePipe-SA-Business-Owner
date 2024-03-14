@@ -1,0 +1,11 @@
+{
+    "Date": "Thu, 14 Mar 2024 08:43:44 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Server": "nginx/1.19.1",
+    "Cache-Control": "no-cache, private",
+    "X-RateLimit-Limit": "60",
+    "X-RateLimit-Remaining": "46",
+    "Access-Control-Allow-Origin": "*"
+}

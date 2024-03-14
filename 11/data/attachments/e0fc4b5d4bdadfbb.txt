@@ -1,0 +1,14 @@
+{
+    "first_name": "",
+    "last_name": "",
+    "email_address": "",
+    "phone_number": "",
+    "employement_date": "",
+    "job_title": "",
+    "annual_net_salary": "",
+    "annual_gross_salary": "",
+    "bank_id": "",
+    "business_id": "",
+    "account_name": "",
+    "account_number": ""
+}

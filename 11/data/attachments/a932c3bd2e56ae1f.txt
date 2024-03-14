@@ -1,0 +1,1 @@
+{"message":"The email field must be a valid email address. (and 1 more error)","errors":{"email":["The email field must be a valid email address."],"role_id":["The selected role id is invalid."]}}
