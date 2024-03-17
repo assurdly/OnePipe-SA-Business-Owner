@@ -13132,6 +13132,47 @@
 				},
 				{
 					"name": "Get  List of Loans",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "acc07d2c-c093-4220-bcbf-3fb5b2b05419",
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response Content-Type is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Success field is present and has a boolean value\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.success).to.exist.and.to.be.a('boolean');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Pagination object contains the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.pagination).to.be.an('object');",
+									"    pm.expect(responseData.pagination).to.have.property('current_page');",
+									"    pm.expect(responseData.pagination).to.have.property('per_page');",
+									"    pm.expect(responseData.pagination).to.have.property('total');",
+									"    pm.expect(responseData.pagination).to.have.property('next_page_url');",
+									"    pm.expect(responseData.pagination).to.have.property('prev_page_url');",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "37b9395b-05b2-4e84-b4ef-99627fe09387",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -13140,7 +13181,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "73|ztkpoNJEugi2c4BY6qB0vgC1F4IBYvEIOWJcvc65d3e74d55"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
@@ -13163,6 +13204,37 @@
 				},
 				{
 					"name": "Get  Loan Details By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4bdb7377-6a14-4da3-bcf4-ad552be7c52d",
+								"exec": [
+									"",
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Success field is present and has a boolean value\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.have.property('success');",
+									"    pm.expect(responseData.success).to.be.a('boolean');",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "645db45c-53d5-49e8-9141-6734340f2cee",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -13171,7 +13243,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
@@ -13200,9 +13272,8 @@
 							],
 							"variable": [
 								{
-									"id": "8749c3ea-3c89-4a61-a39f-f2bdbe24303b",
 									"key": "id",
-									"value": ""
+									"value": "01hryw60kmjnj2tx99v2z30w1b"
 								}
 							]
 						}
