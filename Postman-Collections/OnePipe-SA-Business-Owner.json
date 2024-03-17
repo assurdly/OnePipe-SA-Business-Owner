@@ -7787,18 +7787,18 @@
 							"script": {
 								"id": "c2feb710-145f-4060-8f93-8ebe95dce3fe",
 								"exec": [
-									"pm.test(\"Response status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"pm.test(\"Response status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
 									"});",
 									"",
-									"pm.test(\"Response is a JSON object with success property\", function () {",
+									"pm.test(\"Response is a JSON object with message property\", function () {",
 									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData).to.be.an('object').that.has.property('success');",
+									"    pm.expect(jsonData).has.property('message');",
 									"});",
 									"",
-									"pm.test(\"Response data contains owner object with email property\", function () {",
+									"pm.test(\"Response data contains object with errors property\", function () {",
 									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.data.owner).to.be.an('object').that.has.property('email');",
+									"    pm.expect(jsonData.errors).to.be.an('object').that.has.property('status');",
 									"});"
 								],
 								"type": "text/javascript",
@@ -8079,22 +8079,18 @@
 							"script": {
 								"id": "b30d2a0c-f64c-4784-b0a4-55cfe3ef1f61",
 								"exec": [
-									"pm.test(\"Response status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"pm.test(\"Response status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
 									"});",
 									"",
-									"pm.test(\"Response is a JSON object with success property\", function () {",
-									"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('success');",
+									"pm.test(\"Response is a JSON object with message property\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).has.property('message');",
 									"});",
 									"",
-									"pm.test(\"Response data contains id, business_name, email, and owner properties\", function () {",
-									"    var data = pm.response.json().data;",
-									"    pm.expect(data).to.be.an('object').that.includes.all.keys('id', 'business_name', 'email', 'owner');",
-									"});",
-									"",
-									"pm.test(\"Response data owner is an object with id, email, first_name, and last_name properties\", function () {",
-									"    var owner = pm.response.json().data.owner;",
-									"    pm.expect(owner).to.be.an('object').that.includes.all.keys('id', 'email', 'first_name', 'last_name');",
+									"pm.test(\"Response data contains object with errors property\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errors).to.be.an('object').that.has.property('status');",
 									"});"
 								],
 								"type": "text/javascript",
@@ -8227,22 +8223,18 @@
 							"script": {
 								"id": "b30d2a0c-f64c-4784-b0a4-55cfe3ef1f61",
 								"exec": [
-									"pm.test(\"Response status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"pm.test(\"Response status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
 									"});",
 									"",
-									"pm.test(\"Response is a JSON object with success property\", function () {",
-									"    pm.expect(pm.response.json()).to.be.an('object').that.has.property('success');",
+									"pm.test(\"Response is a JSON object with message property\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).has.property('message');",
 									"});",
 									"",
-									"pm.test(\"Response data contains id, business_name, email, and owner properties\", function () {",
-									"    var data = pm.response.json().data;",
-									"    pm.expect(data).to.be.an('object').that.includes.all.keys('id', 'business_name', 'email', 'owner');",
-									"});",
-									"",
-									"pm.test(\"Response data owner is an object with id, email, first_name, and last_name properties\", function () {",
-									"    var owner = pm.response.json().data.owner;",
-									"    pm.expect(owner).to.be.an('object').that.includes.all.keys('id', 'email', 'first_name', 'last_name');",
+									"pm.test(\"Response data contains object with errors property\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errors).to.be.an('object').that.has.property('status');",
 									"});"
 								],
 								"type": "text/javascript",
@@ -8374,6 +8366,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -8393,23 +8391,23 @@
 							"formdata": [
 								{
 									"key": "brand_color",
-									"value": "",
+									"value": "Blue",
 									"type": "text"
 								},
 								{
 									"key": "header_text",
-									"value": "",
+									"value": "Thanks",
 									"type": "text"
 								},
 								{
 									"key": "footer_text",
-									"value": "",
+									"value": "Test",
 									"type": "text"
 								},
 								{
 									"key": "company_logo",
 									"type": "file",
-									"value": null
+									"src": "q5OFPNhNe/1.png"
 								}
 							]
 						},
