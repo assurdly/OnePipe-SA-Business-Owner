@@ -13531,6 +13531,312 @@
 					"id": "946935cd-c5e2-4807-afe4-5828f2e12bd2"
 				},
 				{
+					"name": "Approve Load",
+					"item": [
+						{
+							"name": "Approve Loan By ID",
+							"id": "2cf40856-550d-4553-ab93-27690bcf5de6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/:id/approve",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										":id",
+										"approve"
+									],
+									"variable": [
+										{
+											"id": "1f5cd601-5c07-4720-8e78-abcae0ad3ac7",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Approve Loan By invalid ID",
+							"id": "3480fbc0-5217-4623-a2f2-809ec6434e3b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/:id/approve",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										":id",
+										"approve"
+									],
+									"variable": [
+										{
+											"id": "1f5cd601-5c07-4720-8e78-abcae0ad3ac7",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Approve Loan with empty ID",
+							"id": "ab448162-c718-43bc-bef6-0cf22768b8ba",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/:id/approve",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										":id",
+										"approve"
+									],
+									"variable": [
+										{
+											"id": "1f5cd601-5c07-4720-8e78-abcae0ad3ac7",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "51c6aa8b-1b7c-4b5d-9a64-07f107b618c2"
+				},
+				{
+					"name": "Decline Loan",
+					"item": [
+						{
+							"name": "Decline Loan By ID",
+							"id": "5803b89b-2fe4-4521-b230-cedbcdc77179",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "10|dwJTL2CKi6g8gl8bhyQSKv0fRJdtdTGHsiMTFV40129db7fc"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/loans/:id/decline",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"loans",
+										":id",
+										"decline"
+									],
+									"variable": [
+										{
+											"id": "04a95be2-9e91-4149-9801-3f57568ee6aa",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Decline Loan By invalid ID",
+							"id": "c2bdc36f-c7a9-4f2f-a57c-394a7f9b8ebc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "10|dwJTL2CKi6g8gl8bhyQSKv0fRJdtdTGHsiMTFV40129db7fc"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/loans/:id/decline",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"loans",
+										":id",
+										"decline"
+									],
+									"variable": [
+										{
+											"id": "04a95be2-9e91-4149-9801-3f57568ee6aa",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Decline Loan with empty ID",
+							"id": "3f292c17-91ee-4081-8dd9-7684e5cb721b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "10|dwJTL2CKi6g8gl8bhyQSKv0fRJdtdTGHsiMTFV40129db7fc"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/loans/:id/decline",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"loans",
+										":id",
+										"decline"
+									],
+									"variable": [
+										{
+											"id": "04a95be2-9e91-4149-9801-3f57568ee6aa",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "877519ca-b916-47aa-8e7e-c44093307c6b"
+				},
+				{
 					"name": "Get  List of Loans",
 					"event": [
 						{
@@ -13760,7 +14066,7 @@
 					"response": []
 				},
 				{
-					"name": "Get  Loan Details By Invalid ID Copy",
+					"name": "Get  Loan Details with empty ID",
 					"event": [
 						{
 							"listen": "test",
@@ -13832,104 +14138,6 @@
 									"id": "17017ce5-69f7-468e-ba43-91d30f593dd6",
 									"key": "id",
 									"value": "01hryw60kmjnj2tx99v2z30w1b"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Approve Loan By ID",
-					"id": "2cf40856-550d-4553-ab93-27690bcf5de6",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
-							}
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/api/payroll/:id/approve",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"payroll",
-								":id",
-								"approve"
-							],
-							"variable": [
-								{
-									"id": "1f5cd601-5c07-4720-8e78-abcae0ad3ac7",
-									"key": "id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Decline Loan By ID",
-					"id": "5803b89b-2fe4-4521-b230-cedbcdc77179",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "10|dwJTL2CKi6g8gl8bhyQSKv0fRJdtdTGHsiMTFV40129db7fc"
-							}
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/api/loans/:id/decline",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"loans",
-								":id",
-								"decline"
-							],
-							"variable": [
-								{
-									"id": "04a95be2-9e91-4149-9801-3f57568ee6aa",
-									"key": "id",
-									"value": ""
 								}
 							]
 						}
