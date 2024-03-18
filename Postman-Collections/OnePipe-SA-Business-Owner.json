@@ -13089,6 +13089,47 @@
 					"item": [
 						{
 							"name": "Book Loan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e60f91bf-6d65-4338-bb67-b7319afed66f",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Success field is present and has a boolean value\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.have.property('success').that.is.a('boolean');",
+											"});",
+											"",
+											"pm.test(\"Message field should be empty or null\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.message).to.eql(\"Loan booked successfully\");",
+											"});",
+											"",
+											"pm.test(\"Data to be an object with expected fields\", function(){",
+											"   const responseData = pm.response.json();",
+											"    pm.expect(responseData.data).to.be.an(\"object\")",
+											"    pm.expect(responseData.data).to.have.property(\"reference\")",
+											"    pm.expect(responseData.data).to.have.property(\"loan_type_id\")",
+											"    pm.expect(responseData.data).to.have.property(\"employee_id\")",
+											"    pm.expect(responseData.data).to.have.property(\"amount\")",
+											"    pm.expect(responseData.data).to.have.property(\"reason\")",
+											"    pm.expect(responseData.data).to.have.property(\"business_id\")",
+											"    pm.expect(responseData.data).to.have.property(\"tenor\")",
+											"    pm.expect(responseData.data).to.have.property(\"schedule\")",
+											"    pm.expect(responseData.data).to.have.property(\"status\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "2412ff69-047d-412d-bcd0-c2aa66e0c014",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -13097,7 +13138,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "70|5ZD1XKJLra2YuQbYuQi8z1vUCHYgGuf0tw684qKya28dab46"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -13116,7 +13157,637 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"loan_type_id\": \"sadfghjjht12\",\n    \"employee_id\": \"1234567ihgfd\",\n    \"amount\": \"100000\",\n    \"tenor\": \"6\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/loans"
+							},
+							"response": []
+						},
+						{
+							"name": "Book Loan with invalid loan type ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "877f80cf-dbcb-4ea8-8612-88d006849743",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"Loan type is invalid\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "a85a662e-4a6c-4909-8488-1297d7c78423",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"loan_type_id\": \"ABC\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/loans"
+							},
+							"response": []
+						},
+						{
+							"name": "Book Loan with empty loan type ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1ac51e48-f0e1-43d3-a8e3-8cff6b8848ed",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"Loan type is required\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "985e5298-dbdf-4acc-97f7-6ff5c83947e2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"loan_type_id\": \"\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/loans"
+							},
+							"response": []
+						},
+						{
+							"name": "Book Loan with invalid employee ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4479edc4-e329-43df-8e7c-4281dc905fc0",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"Invalid business ID\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "4ea0c651-4045-419f-936c-e40522a8a445",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh48iihs8\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/loans"
+							},
+							"response": []
+						},
+						{
+							"name": "Book Loan with empty employee ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "888d03ed-a6cb-469e-9bb9-6208afc96de7",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"business ID is required\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "f0356e85-4c73-45e0-8e76-97a71346ac06",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/loans"
+							},
+							"response": []
+						},
+						{
+							"name": "Book Loan with empty amount",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e9f214e8-4f8e-441f-b960-883d6bb7b129",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"Amount field is required\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "2bb10a03-e5bd-4dfa-97e6-549d8ad9c878",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/loans"
+							},
+							"response": []
+						},
+						{
+							"name": "Book Loan with empty tenor",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3fb0eefe-fdb8-48a9-b9b2-fbbe9123b2e6",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"tenor is required\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "b9658ef4-e3db-4a0f-8cad-4e7aa94bb475",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/loans"
+							},
+							"response": []
+						},
+						{
+							"name": "Book Loan with invalid tenor",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "09afcca6-21c4-480c-98f2-e027d7e8fd9a",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"Invalid Tenor\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "550f0751-d223-4ccc-9f19-ad413d15d7de",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"A\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/loans"
+							},
+							"response": []
+						},
+						{
+							"name": "Book Loan with invalid schedule",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "338729a1-74dd-49c8-ab4a-56fea126741d",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"Invalid Schedule\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "1927012b-2e34-47e2-85ba-cc66e595e1fe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Yearly\",\n    \"reason\": \"House rent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/loans"
+							},
+							"response": []
+						},
+						{
+							"name": "Book Loan with empty schedule",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5157a89a-01a0-4590-8ddf-66137c09c7f7",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"Schedule is required\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "0b824800-2e7d-4bb0-b820-f7c1ddbc5255",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"\",\n    \"reason\": \"House rent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/loans"
+							},
+							"response": []
+						},
+						{
+							"name": "Book Loan with empty reason",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ac56a32f-c54b-4531-a242-bb6435c6c9ff",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"Reason is required\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "4786b18a-72d0-4233-813a-657b6f645107",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -13129,6 +13800,312 @@
 						}
 					],
 					"id": "946935cd-c5e2-4807-afe4-5828f2e12bd2"
+				},
+				{
+					"name": "Approve Load",
+					"item": [
+						{
+							"name": "Approve Loan By ID",
+							"id": "2cf40856-550d-4553-ab93-27690bcf5de6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/:id/approve",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										":id",
+										"approve"
+									],
+									"variable": [
+										{
+											"id": "1f5cd601-5c07-4720-8e78-abcae0ad3ac7",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Approve Loan By invalid ID",
+							"id": "3480fbc0-5217-4623-a2f2-809ec6434e3b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/:id/approve",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										":id",
+										"approve"
+									],
+									"variable": [
+										{
+											"id": "1f5cd601-5c07-4720-8e78-abcae0ad3ac7",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Approve Loan with empty ID",
+							"id": "ab448162-c718-43bc-bef6-0cf22768b8ba",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payroll/:id/approve",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payroll",
+										":id",
+										"approve"
+									],
+									"variable": [
+										{
+											"id": "1f5cd601-5c07-4720-8e78-abcae0ad3ac7",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "51c6aa8b-1b7c-4b5d-9a64-07f107b618c2"
+				},
+				{
+					"name": "Decline Loan",
+					"item": [
+						{
+							"name": "Decline Loan By ID",
+							"id": "5803b89b-2fe4-4521-b230-cedbcdc77179",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "10|dwJTL2CKi6g8gl8bhyQSKv0fRJdtdTGHsiMTFV40129db7fc"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/loans/:id/decline",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"loans",
+										":id",
+										"decline"
+									],
+									"variable": [
+										{
+											"id": "04a95be2-9e91-4149-9801-3f57568ee6aa",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Decline Loan By invalid ID",
+							"id": "c2bdc36f-c7a9-4f2f-a57c-394a7f9b8ebc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "10|dwJTL2CKi6g8gl8bhyQSKv0fRJdtdTGHsiMTFV40129db7fc"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/loans/:id/decline",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"loans",
+										":id",
+										"decline"
+									],
+									"variable": [
+										{
+											"id": "04a95be2-9e91-4149-9801-3f57568ee6aa",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Decline Loan with empty ID",
+							"id": "3f292c17-91ee-4081-8dd9-7684e5cb721b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "10|dwJTL2CKi6g8gl8bhyQSKv0fRJdtdTGHsiMTFV40129db7fc"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer 6|7OFI5KRIQdOZir1ELLTF6T4GPHJXXYzSA8zWXqS89f352e1d",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/loans/:id/decline",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"loans",
+										":id",
+										"decline"
+									],
+									"variable": [
+										{
+											"id": "04a95be2-9e91-4149-9801-3f57568ee6aa",
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "877519ca-b916-47aa-8e7e-c44093307c6b"
 				},
 				{
 					"name": "Get  List of Loans",
@@ -13281,8 +14258,43 @@
 					"response": []
 				},
 				{
-					"name": "Approve Loan By ID",
-					"id": "2cf40856-550d-4553-ab93-27690bcf5de6",
+					"name": "Get  Loan Details By Invalid ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4bdb7377-6a14-4da3-bcf4-ad552be7c52d",
+								"exec": [
+									"",
+									"",
+									"pm.test(\"Response status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Success field is present and has a boolean value\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.have.property('success');",
+									"    pm.expect(responseData.success).to.be.a('boolean');",
+									"});",
+									"",
+									"pm.test(\"Response contains a specific message\", function (){",
+									"    pm.expect(pm.response.json().message).to.eql(\"Loan not found\")",
+									"})",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "747b99a8-2c01-4a07-bae5-26bcc8f976b6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -13290,10 +14302,10 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "5|c14aP2J7BojYPRZ8fn5GPbI4xikSX59wxRC0kzJaee8c2ee5"
+								"token": "{{token}}"
 							}
 						},
-						"method": "PUT",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
@@ -13308,21 +14320,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/payroll/:id/approve",
+							"raw": "{{baseUrl}}/api/loans/:id",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
-								"payroll",
-								":id",
-								"approve"
+								"loans",
+								":id"
 							],
 							"variable": [
 								{
-									"id": "1f5cd601-5c07-4720-8e78-abcae0ad3ac7",
 									"key": "id",
-									"value": ""
+									"value": "01hryw60kmjnj2tx99v2z34ekf"
 								}
 							]
 						}
@@ -13330,8 +14340,42 @@
 					"response": []
 				},
 				{
-					"name": "Decline Loan By ID",
-					"id": "5803b89b-2fe4-4521-b230-cedbcdc77179",
+					"name": "Get  Loan Details with empty ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4bdb7377-6a14-4da3-bcf4-ad552be7c52d",
+								"exec": [
+									"",
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Success field is present and has a boolean value\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.have.property('success');",
+									"    pm.expect(responseData.success).to.be.a('boolean');",
+									"});",
+									"",
+									"pm.test(\"Response contains a specific message\", function (){",
+									"    pm.expect(pm.response.json().message).to.eql(\"Loan not found\")",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "1af7ee30-2984-49e1-8891-5d410a94bee7",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -13339,10 +14383,10 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "10|dwJTL2CKi6g8gl8bhyQSKv0fRJdtdTGHsiMTFV40129db7fc"
+								"token": "{{token}}"
 							}
 						},
-						"method": "PUT",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
@@ -13357,19 +14401,17 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/loans/:id/decline",
+							"raw": "{{baseUrl}}/api/loans/:id",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
 								"loans",
-								":id",
-								"decline"
+								":id"
 							],
 							"variable": [
 								{
-									"id": "04a95be2-9e91-4149-9801-3f57568ee6aa",
 									"key": "id",
 									"value": ""
 								}
@@ -14533,7 +15575,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "323e5b78-9388-4f24-a212-78ddd987a5c3",
+				"id": "e8ac5a01-122a-4c01-8103-6a883478f253",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -14543,7 +15585,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "51c63fdc-b6fd-4f95-a724-45422ddb721e",
+				"id": "7fe33377-6d1c-4908-bb6a-6e62a30339d3",
 				"type": "text/javascript",
 				"exec": [
 					""
