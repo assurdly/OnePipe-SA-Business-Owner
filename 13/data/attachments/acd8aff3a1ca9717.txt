@@ -1,0 +1,1 @@
+{"message":"The email has already been taken. (and 3 more errors)","errors":{"email":["The email has already been taken."],"phone_number":["The phone number has already been taken."],"business_name":["The business name has already been taken."],"rc_number":["The rc number field must not be greater than 10 characters."]}}

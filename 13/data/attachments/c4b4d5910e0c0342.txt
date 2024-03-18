@@ -1,0 +1,1 @@
+{"message":"The last name field is required. (and 4 more errors)","errors":{"last_name":["The last name field is required."],"email":["The email has already been taken."],"phone_number":["The phone number has already been taken."],"business_name":["The business name has already been taken."],"rc_number":["The rc number has already been taken."]}}

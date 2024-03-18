@@ -1,0 +1,1 @@
+{"message":"The first name field is required. (and 1 more error)","errors":{"first_name":["The first name field is required."],"business_name":["The business name has already been taken."]}}
