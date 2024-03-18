@@ -1,0 +1,1 @@
+{"message":"The bank code field is required. (and 1 more error)","errors":{"bank_code":["The bank code field is required."],"account_number":["The account number field is required."]}}

@@ -1,0 +1,1 @@
+{"message":"The name has already been taken. (and 4 more errors)","errors":{"name":["The name has already been taken."],"cycle_ends":["The cycle ends field must be a valid date.","The cycle ends field must match the format Y-m-d."],"payroll_items.0.id":["The selected payroll_items.0.id is invalid."],"payroll_items.1.id":["The selected payroll_items.1.id is invalid."]}}

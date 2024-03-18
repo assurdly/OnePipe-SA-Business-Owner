@@ -1,0 +1,10 @@
+{
+    "first_name": "",
+    "last_name": "Kovacek",
+    "email": "Pansy92@gmail.com",
+    "phone_number": "9167256345",
+    "business_name": "{{$randomBusinessName}}",
+    "rc_number": "12345",
+    "business_type": "Marketing",
+    "password": "Qwerty123@"
+}
