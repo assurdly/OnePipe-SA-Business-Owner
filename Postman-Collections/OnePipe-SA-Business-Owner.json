@@ -13089,6 +13089,47 @@
 					"item": [
 						{
 							"name": "Book Loan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e60f91bf-6d65-4338-bb67-b7319afed66f",
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Success field is present and has a boolean value\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.have.property('success').that.is.a('boolean');",
+											"});",
+											"",
+											"pm.test(\"Message field should be empty or null\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.message).to.eql(\"Loan booked successfully\");",
+											"});",
+											"",
+											"pm.test(\"Data to be an object with expected fields\", function(){",
+											"   const responseData = pm.response.json();",
+											"    pm.expect(responseData.data).to.be.an(\"object\")",
+											"    pm.expect(responseData.data).to.have.property(\"reference\")",
+											"    pm.expect(responseData.data).to.have.property(\"loan_type_id\")",
+											"    pm.expect(responseData.data).to.have.property(\"employee_id\")",
+											"    pm.expect(responseData.data).to.have.property(\"amount\")",
+											"    pm.expect(responseData.data).to.have.property(\"reason\")",
+											"    pm.expect(responseData.data).to.have.property(\"business_id\")",
+											"    pm.expect(responseData.data).to.have.property(\"tenor\")",
+											"    pm.expect(responseData.data).to.have.property(\"schedule\")",
+											"    pm.expect(responseData.data).to.have.property(\"status\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "2412ff69-047d-412d-bcd0-c2aa66e0c014",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -13097,7 +13138,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "70|5ZD1XKJLra2YuQbYuQi8z1vUCHYgGuf0tw684qKya28dab46"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -13116,7 +13157,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"loan_type_id\": \"sadfghjjht12\",\n    \"employee_id\": \"1234567ihgfd\",\n    \"amount\": \"100000\",\n    \"tenor\": \"6\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
