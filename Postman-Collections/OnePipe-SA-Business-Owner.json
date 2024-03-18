@@ -13535,7 +13535,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"loan_type_id\": \"ABC\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -13598,7 +13598,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"loan_type_id\": \"ABC\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"A\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"A\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
