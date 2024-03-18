@@ -13737,6 +13737,29 @@
 						},
 						{
 							"name": "Book Loan with empty reason",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ac56a32f-c54b-4531-a242-bb6435c6c9ff",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"Reason is required\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "4786b18a-72d0-4233-813a-657b6f645107",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -13745,7 +13768,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "70|5ZD1XKJLra2YuQbYuQi8z1vUCHYgGuf0tw684qKya28dab46"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -13764,7 +13787,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"loan_type_id\": \"sadfghjjht12\",\n    \"employee_id\": \"1234567ihgfd\",\n    \"amount\": \"100000\",\n    \"tenor\": \"6\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh7vrp\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -14244,8 +14267,8 @@
 								"exec": [
 									"",
 									"",
-									"pm.test(\"Response status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"pm.test(\"Response status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
 									"});",
 									"",
 									"",
@@ -14260,6 +14283,10 @@
 									"    pm.expect(responseData).to.have.property('success');",
 									"    pm.expect(responseData.success).to.be.a('boolean');",
 									"});",
+									"",
+									"pm.test(\"Response contains a specific message\", function (){",
+									"    pm.expect(pm.response.json().message).to.eql(\"Loan not found\")",
+									"})",
 									""
 								],
 								"type": "text/javascript",
@@ -14304,9 +14331,8 @@
 							],
 							"variable": [
 								{
-									"id": "17017ce5-69f7-468e-ba43-91d30f593dd6",
 									"key": "id",
-									"value": "01hryw60kmjnj2tx99v2z30w1b"
+									"value": "01hryw60kmjnj2tx99v2z34ekf"
 								}
 							]
 						}
