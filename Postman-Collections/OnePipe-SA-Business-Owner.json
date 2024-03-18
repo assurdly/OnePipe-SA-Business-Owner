@@ -13296,6 +13296,29 @@
 						},
 						{
 							"name": "Book Loan with invalid employee ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4479edc4-e329-43df-8e7c-4281dc905fc0",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"Invalid business ID\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "4ea0c651-4045-419f-936c-e40522a8a445",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -13304,7 +13327,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "70|5ZD1XKJLra2YuQbYuQi8z1vUCHYgGuf0tw684qKya28dab46"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -13323,7 +13346,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"loan_type_id\": \"sadfghjjht12\",\n    \"employee_id\": \"1234567ihgfd\",\n    \"amount\": \"100000\",\n    \"tenor\": \"6\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"01hrs72hsrep3fv695r8qh48iihs8\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -13336,6 +13359,29 @@
 						},
 						{
 							"name": "Book Loan with empty employee ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "888d03ed-a6cb-469e-9bb9-6208afc96de7",
+										"exec": [
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"Response contains message\", function () {",
+											"    pm.expect(pm.response.json().message).to.exist;",
+											"});",
+											"",
+											"pm.test(\"Response contains a specific message\", function (){",
+											"    pm.expect(pm.response.json().message).to.eql(\"business ID is required\")",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "f0356e85-4c73-45e0-8e76-97a71346ac06",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -13344,7 +13390,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "70|5ZD1XKJLra2YuQbYuQi8z1vUCHYgGuf0tw684qKya28dab46"
+										"token": "{{token}}"
 									}
 								},
 								"method": "POST",
@@ -13363,7 +13409,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"loan_type_id\": \"sadfghjjht12\",\n    \"employee_id\": \"1234567ihgfd\",\n    \"amount\": \"100000\",\n    \"tenor\": \"6\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
+									"raw": "{\n    \"loan_type_id\": \"4\",\n    \"employee_id\": \"\",\n    \"amount\": \"100000\",\n    \"tenor\": \"3\",\n    \"schedule\": \"Monthly\",\n    \"reason\": \"House rent\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
