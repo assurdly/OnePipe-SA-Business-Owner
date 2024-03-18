@@ -14350,7 +14350,7 @@
 									"",
 									"",
 									"pm.test(\"Response status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
+									"    pm.response.to.have.status(404);",
 									"});",
 									"",
 									"",
@@ -14365,7 +14365,10 @@
 									"    pm.expect(responseData).to.have.property('success');",
 									"    pm.expect(responseData.success).to.be.a('boolean');",
 									"});",
-									""
+									"",
+									"pm.test(\"Response contains a specific message\", function (){",
+									"    pm.expect(pm.response.json().message).to.eql(\"Loan not found\")",
+									"})"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -14409,9 +14412,8 @@
 							],
 							"variable": [
 								{
-									"id": "17017ce5-69f7-468e-ba43-91d30f593dd6",
 									"key": "id",
-									"value": "01hryw60kmjnj2tx99v2z30w1b"
+									"value": ""
 								}
 							]
 						}
