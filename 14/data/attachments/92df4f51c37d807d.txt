@@ -1,0 +1,24 @@
+{
+    "name": "January0 2024 Payroll",
+    "cycle_starts": "2024-02-10",
+    "cycle_ends": "2024-02-20",
+    "amount_disbursed": "100000",
+    "sms_email_fee": "2000",
+    "employees_loan_amount": "0",
+    "amount_to_fund": "100000",
+    "payroll_items": [
+        {
+            "id": "01hrb78jaet8887hdhw5s67jeg",
+            "salary": "1000000",
+            "loan_amount": "0",
+            "net_payment": ""
+        },
+        {
+            "id": "01hrb7fv5q8v9zef2ek12j8977",
+            "salary": "200000",
+            "loan_amount": "0",
+            "net_payment": ""
+        }
+        
+    ]
+}

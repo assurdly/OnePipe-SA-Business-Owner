@@ -1,0 +1,6 @@
+{
+    "business_id": "",
+    "bank_id": "01hp5623md1gzeehvt9d92prks",
+    "account_name": "Shewen Habeeb",
+    "account_number": "2019847146"
+}
