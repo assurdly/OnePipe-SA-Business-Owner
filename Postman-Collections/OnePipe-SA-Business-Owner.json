@@ -1441,6 +1441,40 @@
 						}
 					],
 					"id": "dbc0a00a-3854-4587-b316-d72dfbf21086"
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Change password",
+							"id": "61d29c60-9bd0-4315-b932-ba95b8e279b1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"current_password\": \"Password@1\",\n    \"new_password\": \"Password@2\",\n    \"new_password_confirmation\": \"Password@2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/profile/change-password"
+							},
+							"response": []
+						}
+					],
+					"id": "53246fb9-9e93-4fef-83cc-528d8b6d3c45"
 				}
 			],
 			"id": "ed772b4e-c482-47f8-8f22-508f0398b64d"
