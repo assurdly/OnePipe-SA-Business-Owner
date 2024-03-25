@@ -1,0 +1,1 @@
+{"message":"The email address has already been taken. (and 1 more error)","errors":{"email_address":["The email address has already been taken."],"phone_number":["The phone number field must be 10 digits."]}}

@@ -1,0 +1,1 @@
+{"message":"The selected loan type id is invalid. (and 1 more error)","errors":{"loan_type_id":["The selected loan type id is invalid."],"employee_id":["The selected employee id is invalid."]}}
