@@ -1,0 +1,1 @@
+{"message":"Business Registration successful","user":{"first_name":"Moses","last_name":"George","email":"noses@assurdly.com","phone_number":"2348173854807","role_id":9,"business_id":"01hst6vptchb1pfj83xrf4d3mc","status":"pending","id":"01hst6vqg6h2s9fzp4gzdh8rm1","updated_at":"2024-03-25T07:05:41.000000Z","created_at":"2024-03-25T07:05:41.000000Z","name":"Moses George"}}

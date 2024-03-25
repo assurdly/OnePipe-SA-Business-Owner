@@ -1,0 +1,8 @@
+{
+    "loan_type_id": "4",
+    "employee_id": "01hrs72hsrep3fv695r8qh7vrp",
+    "amount": "100000",
+    "tenor": "A",
+    "schedule": "Monthly",
+    "reason": "House rent"
+}

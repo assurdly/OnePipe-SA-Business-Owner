@@ -1,0 +1,10 @@
+{
+    "first_name": "Moses",
+    "last_name": "George",
+    "email": "noses@@assurdly.com",
+    "phone_number": "8173854807",
+    "business_name": "Assurdly Tester",
+    "rc_number": "212345",
+    "business_type": "Marketing",
+    "password": "Qwerty123@"
+}
